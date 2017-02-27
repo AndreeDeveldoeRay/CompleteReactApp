@@ -4,10 +4,11 @@
 * @Email:  me@andreeray.se
 * @Filename: Entry.jsx
 * @Last modified by:   andreeray
-* @Last modified time: 2017-02-27T03:48:01+01:00
+* @Last modified time: 2017-02-28T00:38:10+01:00
 */
 
-var React = require('react'), ReactDOM = require('react-dom'), {Route,Router,IndexRoute,hashHistory} = require('react-router')
+var React = require('react'), ReactDOM = require('react-dom'), {Route,Router,IndexRoute,hashHistory} = require('react-router'),
+    TodoApp = require('TodoApp')
 
 // Load foundation
 require('style!css!foundation-sites/dist/css/foundation.min.css')
@@ -17,6 +18,6 @@ $(document).foundation()
 require('style!css!sass!styles')
 
 ReactDOM.render(
-    <p>Boilerplate</p>,
+    <TodoApp/>,
     document.getElementById('app')
 )

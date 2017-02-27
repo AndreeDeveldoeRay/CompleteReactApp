@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: webpack.config.js
 * @Last modified by:   andreeray
-* @Last modified time: 2017-02-27T03:48:17+01:00
+* @Last modified time: 2017-02-28T00:37:33+01:00
 */
 
 
@@ -32,6 +32,10 @@ module.exports = {
     },
     resolve: {
         root: __dirname,
+        modulesDirectories: [
+            'node_modules',
+            './app/components'
+        ],
         alias: {
             styles              : 'app/styles/app.scss'
         },

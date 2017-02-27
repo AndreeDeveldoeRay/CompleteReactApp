@@ -3,6 +3,11 @@
 // @Email:  me@andreeray.se
 // @Filename: app.scss
 // @Last modified by:   andreeray
-// @Last modified time: 2017-02-27T03:45:42+01:00
+// @Last modified time: 2017-02-28T00:47:22+01:00
 
 @import 'base/variables';
+
+html, body {
+    background: $black;
+    color: white;
+}
