@@ -1,10 +1,10 @@
 /**
-* @Author: Andreee "DevelDoe" Ray <andreeray>
+* @Author: Andreee "DevelDoe" Ray
 * @Date:   2017-02-28T01:30:12+01:00
 * @Email:  me@andreeray.se
 * @Filename: Root.test.jsx
-* @Last modified by:   andreeray
-* @Last modified time: 2017-02-28T01:40:36+01:00
+* @Last modified by:   Andreee "DevelDoe" Ray
+* @Last modified time: 2017-02-28T02:45:33+01:00
 */
 
 
