@@ -4,12 +4,11 @@
 @Email:  me@andreeray.se
 @Filename: readme.md
 @Last modified by:   andreeray
-@Last modified time: 2017-02-26T15:22:25+01:00
+@Last modified time: 2017-02-28T01:45:53+01:00
 -->
 
 
 
-# React - Tests project
+# React - ToDo
 
-This projects contains a project with tests. I have this project here so that I can go back
-and have a look if i need it.
+A basic todo app for learning purposes.

@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: app.test.jsx
 * @Last modified by:   andreeray
-* @Last modified time: 2017-02-26T02:46:44+01:00
+* @Last modified time: 2017-02-28T01:42:40+01:00
 */
 
 
@@ -12,8 +12,8 @@
 var expect = require('expect')
 
 
-describe('App', () => {
-    it('should properly run tests...', () => {
+describe('Tests', () => {
+    it('booting', () => {
         expect(1).toBe(1)
     })
 })
