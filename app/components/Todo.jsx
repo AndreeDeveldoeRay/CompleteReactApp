@@ -4,12 +4,12 @@
 * @Email:  me@andreeray.se
 * @Filename: TodoApp.jsx
 * @Last modified by:   Andreee "DevelDoe" Ray
-* @Last modified time: 2017-03-01T04:05:33+01:00
+* @Last modified time: 2017-03-01T04:39:58+01:00
 */
 
 
 
-var React = require('react'), List = require('List'), AddItem = require('AddItem'), Search = require('Search'), uuid = require('node-uuid')
+var React = require('react'), List = require('List'), AddItem = require('AddItem'), Search = require('Search'), uuid = require('node-uuid'), TodoAPI = require('TodoAPI')
 
 var Todo = React.createClass(
 {
@@ -17,18 +17,12 @@ var Todo = React.createClass(
         return {
             show: false,
             search: '',
-            todos: [
-                {
-                    id: uuid(),
-                    text: 'item 1',
-                    completed: false
-                }, {
-                    id: uuid(),
-                    text: 'item 2',
-                    completed: true
-                }
-            ]
+            todos: TodoAPI.getTodos()
         }
+    },
+    componentDidUpdate: function ()
+    {
+        TodoAPI.setTodos(this.state.todos)
     },
     handleAddItem: function (text)
     {

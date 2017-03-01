@@ -3,8 +3,8 @@
 * @Date:   2017-02-20T13:54:23+01:00
 * @Email:  me@andreeray.se
 * @Filename: webpack.config.js
-* @Last modified by:   andreeray
-* @Last modified time: 2017-02-28T00:37:33+01:00
+* @Last modified by:   Andreee "DevelDoe" Ray
+* @Last modified time: 2017-03-01T04:37:03+01:00
 */
 
 
@@ -34,10 +34,11 @@ module.exports = {
         root: __dirname,
         modulesDirectories: [
             'node_modules',
-            './app/components'
+            './app/components',
+            './app/api'
         ],
         alias: {
-            styles              : 'app/styles/app.scss'
+            styles: 'app/styles/app.scss'
         },
         extensions: ['','.js','.jsx']
     },

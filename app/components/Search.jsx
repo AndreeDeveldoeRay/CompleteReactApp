@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: search.jsx
 * @Last modified by:   Andreee "DevelDoe" Ray
-* @Last modified time: 2017-03-01T02:50:30+01:00
+* @Last modified time: 2017-03-01T04:58:06+01:00
 */
 
 
@@ -24,7 +24,7 @@ var Search = React.createClass(
         return (
             <div>
                 <input type="text" ref="textSearch" placeholder="search" onChange={this.onSearch}/>
-                <label><input type="checkbox" ref="checkboxShow" onChange={this.onSearch}/> completed</label>
+                <input type="checkbox" ref="checkboxShow" onChange={this.onSearch}/>show completed items
             </div>
         )
     }
