@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Root.test.jsx
 * @Last modified by:   Andreee "DevelDoe" Ray
-* @Last modified time: 2017-03-01T01:41:18+01:00
+* @Last modified time: 2017-03-01T03:12:34+01:00
 */
 
 
@@ -16,5 +16,13 @@ describe('Todo', () =>
     it('exists', () =>
     {
         Expect(Todo).toExist()
+    })
+    it('should add todo to the todos state on handleAddTodo', () =>
+    {
+        var text = 'test'
+        var todo = TestUtils.renderIntoDocument(<Todo/>)
+        todo.setState({todos:[]})
+        todo.handleAddItem(text)
+        Expect(todo.state.todos[0].text).toBe(text)
     })
 })

@@ -4,12 +4,12 @@
 * @Email:  me@andreeray.se
 * @Filename: TodoApp.jsx
 * @Last modified by:   Andreee "DevelDoe" Ray
-* @Last modified time: 2017-03-01T01:59:34+01:00
+* @Last modified time: 2017-03-01T03:03:39+01:00
 */
 
 
 
-var React = require('react'), List = require('List'), AddItem = require('AddItem'), Search = require('Search')
+var React = require('react'), List = require('List'), AddItem = require('AddItem'), Search = require('Search'), uuid = require('node-uuid')
 
 var Todo = React.createClass(
 {
@@ -19,16 +19,16 @@ var Todo = React.createClass(
             search: '',
             todos: [
                 {
-                    id: 1,
+                    id: uuid(),
                     text: 'Walk the dog'
                 }, {
-                    id: 2,
+                    id: uuid(),
                     text: 'Clean the yard'
                 }, {
-                    id: 3,
+                    id: uuid(),
                     text: 'Create a modal for andreeray.se'
                 }, {
-                    id: 4,
+                    id: uuid(),
                     text: 'Start my app'
                 }
             ]
@@ -36,7 +36,15 @@ var Todo = React.createClass(
     },
     handleAddItem: function (text)
     {
-        console.log('text: ', text)
+        this.setState({
+            todos: [
+                ...this.state.todos,
+                {
+                    text:text,
+                    id: uuid()
+                }
+            ]
+        })
     },
     handleSearch: function (show, search)
     {
