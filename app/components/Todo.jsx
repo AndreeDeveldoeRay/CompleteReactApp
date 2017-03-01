@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: TodoApp.jsx
 * @Last modified by:   Andreee "DevelDoe" Ray
-* @Last modified time: 2017-03-01T03:03:39+01:00
+* @Last modified time: 2017-03-01T04:05:33+01:00
 */
 
 
@@ -20,16 +20,12 @@ var Todo = React.createClass(
             todos: [
                 {
                     id: uuid(),
-                    text: 'Walk the dog'
+                    text: 'item 1',
+                    completed: false
                 }, {
                     id: uuid(),
-                    text: 'Clean the yard'
-                }, {
-                    id: uuid(),
-                    text: 'Create a modal for andreeray.se'
-                }, {
-                    id: uuid(),
-                    text: 'Start my app'
+                    text: 'item 2',
+                    completed: true
                 }
             ]
         }
@@ -40,11 +36,19 @@ var Todo = React.createClass(
             todos: [
                 ...this.state.todos,
                 {
+                    id: uuid(),
                     text:text,
-                    id: uuid()
+                    completed: false
                 }
             ]
         })
+    },
+    handleToggle: function (id) {
+        var todos = this.state.todos.map((todo)=>{
+            if (todo.id === id) todo.completed = !todo.completed
+            return todo
+        })
+        this.setState({todos:todos})
     },
     handleSearch: function (show, search)
     {
@@ -59,7 +63,7 @@ var Todo = React.createClass(
         return (
         <div>
             <Search handleSearch={this.handleSearch}/>
-            <List todos={todos}/>
+            <List todos={todos} handleToggle={this.handleToggle}/>
             <AddItem handleAddItem={this.handleAddItem}/>
         </div>)
     }

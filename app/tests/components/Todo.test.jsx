@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Root.test.jsx
 * @Last modified by:   Andreee "DevelDoe" Ray
-* @Last modified time: 2017-03-01T03:12:34+01:00
+* @Last modified time: 2017-03-01T04:13:16+01:00
 */
 
 
@@ -24,5 +24,14 @@ describe('Todo', () =>
         todo.setState({todos:[]})
         todo.handleAddItem(text)
         Expect(todo.state.todos[0].text).toBe(text)
+    })
+    it('should toggle completed value when handleToggle is called', () =>
+    {
+        var data = {id:11,text:'test',completed:false}
+        var todo = TestUtils.renderIntoDocument(<Todo/>)
+        todo.setState({todos:[data]})
+        Expect(todo.state.todos[0].completed).toBe(false)
+        todo.handleToggle(11)
+        Expect(todo.state.todos[0].completed).toBe(true)
     })
 })
