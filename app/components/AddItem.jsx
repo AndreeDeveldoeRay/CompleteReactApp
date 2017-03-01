@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: AddItem.jsx
 * @Last modified by:   Andreee "DevelDoe" Ray
-* @Last modified time: 2017-02-28T02:42:25+01:00
+* @Last modified time: 2017-02-28T03:12:27+01:00
 */
 
 
@@ -34,7 +34,7 @@ var Input = React.createClass
         <div>
             <form onSubmit={this.onSubmit}>
                 <input type="text" ref="text" placeholder="What you need to do"/>
-                <button className="button expanded">Add Todo</button>
+                <button className="button expanded">ADD</button>
             </form>
         </div>)
     }

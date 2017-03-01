@@ -3,18 +3,20 @@
 * @Date:   2017-02-28T00:33:36+01:00
 * @Email:  me@andreeray.se
 * @Filename: TodoApp.jsx
-* @Last modified by:   andreeray
-* @Last modified time: 2017-02-28T02:32:34+01:00
+* @Last modified by:   Andreee "DevelDoe" Ray
+* @Last modified time: 2017-03-01T01:59:34+01:00
 */
 
 
 
-var React = require('react'), List = require('List'), AddItem = require('AddItem')
+var React = require('react'), List = require('List'), AddItem = require('AddItem'), Search = require('Search')
 
-var Root = React.createClass(
+var Todo = React.createClass(
 {
     getInitialState: function () {
         return {
+            show: false,
+            search: '',
             todos: [
                 {
                     id: 1,
@@ -36,14 +38,22 @@ var Root = React.createClass(
     {
         console.log('text: ', text)
     },
+    handleSearch: function (show, search)
+    {
+        this.setState({
+            show: show,
+            search: search.toLowerCase()
+        })
+    },
     render: function ()
     {
         var {todos} = this.state
         return (
         <div>
+            <Search handleSearch={this.handleSearch}/>
             <List todos={todos}/>
             <AddItem handleAddItem={this.handleAddItem}/>
         </div>)
     }
 })
-module.exports = Root
+module.exports = Todo

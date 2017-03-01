@@ -2,23 +2,14 @@
 // @Date:   2017-02-20T13:54:23+01:00
 // @Email:  me@andreeray.se
 // @Filename: app.scss
-// @Last modified by:   andreeray
-// @Last modified time: 2017-02-28T02:35:20+01:00
+// @Last modified by:   Andreee "DevelDoe" Ray
+// @Last modified time: 2017-03-01T01:46:05+01:00
 
 @import 'base/variables';
 
 *:focus {outline:0;}
 
-html, body {
-    background: $black;
-    color: white;
-}
-.button {
-    background-color: rgb( 255, 194, 0);
-}
-.button:hover {
-    background-color: rgb( 255, 194, 0);
-}
-.button:focus {
-    background-color: rgb( 255, 194, 0);
+html, body{
+    background: $black !important;
+    color: white !important;
 }
