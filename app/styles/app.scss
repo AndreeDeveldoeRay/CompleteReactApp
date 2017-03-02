@@ -2,9 +2,13 @@
 // @Date:   2017-02-20T13:54:23+01:00
 // @Email:  me@andreeray.se
 // @Filename: app.scss
-// @Last modified by:   Andreee "DevelDoe" Ray
-// @Last modified time: 2017-03-02T11:50:20+01:00
+// @Last modified by:   andreeray
+// @Last modified time: 2017-03-02T19:35:35+01:00
 
 @import 'base/variables';
 
 *:focus {outline:0;}
+
+.todo-completed{
+    color:red;
+}
