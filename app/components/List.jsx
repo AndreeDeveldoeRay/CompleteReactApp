@@ -3,8 +3,8 @@
 * @Date:   2017-02-28T01:03:37+01:00
 * @Email:  me@andreeray.se
 * @Filename: List.jsx
-* @Last modified by:   Andreee "DevelDoe" Ray
-* @Last modified time: 2017-03-01T03:58:13+01:00
+* @Last modified by:   andreeray
+* @Last modified time: 2017-03-02T18:31:40+01:00
 */
 
 
@@ -19,6 +19,7 @@ var List = React.createClass
         var {todos} = this.props
         var renderItems = () =>
         {
+            if (todos.length === 0) return <p>Nothing to do</p>
             return todos.map((item) =>
             {
                 return (
