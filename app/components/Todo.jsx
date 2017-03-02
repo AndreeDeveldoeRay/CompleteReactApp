@@ -4,12 +4,12 @@
 * @Email:  me@andreeray.se
 * @Filename: TodoApp.jsx
 * @Last modified by:   Andreee "DevelDoe" Ray
-* @Last modified time: 2017-03-02T11:41:05+01:00
+* @Last modified time: 2017-03-02T16:06:57+01:00
 */
 
 
 
-var React = require('react'), List = require('List'), AddItem = require('AddItem'), Search = require('Search'), uuid = require('node-uuid'), TodoAPI = require('TodoAPI')
+var React = require('react'), List = require('List'), AddItem = require('AddItem'), Search = require('Search'), uuid = require('node-uuid'), TodoAPI = require('TodoAPI'), moment = require('moment')
 
 var Todo = React.createClass(
 {
@@ -32,14 +32,20 @@ var Todo = React.createClass(
                 {
                     id: uuid(),
                     text:text,
-                    completed: false
+                    completed: false,
+                    createdAt: moment().unix(),
+                    completedAt: undefined
                 }
             ]
         })
     },
     handleToggle: function (id) {
         var todos = this.state.todos.map((todo)=>{
-            if (todo.id === id) todo.completed = !todo.completed
+            if (todo.id === id)
+            {
+                todo.completed = !todo.completed
+                todo.completedAt = todo.completed ? moment().unix() : undefined
+            }
             return todo
         })
         this.setState({todos:todos})

@@ -4,21 +4,36 @@
 * @Email:  me@andreeray.se
 * @Filename: Item.jsx
 * @Last modified by:   Andreee "DevelDoe" Ray
-* @Last modified time: 2017-03-01T03:55:11+01:00
+* @Last modified time: 2017-03-02T16:08:17+01:00
 */
 
 
-var React = require('react')
+var React = require('react'), moment = require('moment')
 
 var Item = React.createClass
 ({
     render: function ()
     {
-        var {id,text,completed} = this.props
+        var {id,text,completed,createdAt,completedAt} = this.props
+        var renderDate = () =>
+        {
+            if(completed)
+            {
+                message = 'Completed '
+                timestamp = completedAt
+            }
+            else
+            {
+                var message = 'Created '
+                var timestamp = createdAt
+            }
+            return message + moment.unix(timestamp).format('MMM Do YYYY @ hh:mm')
+        }
         return (
         <div onClick={ () => { this.props.handleToggle(id) }}>
             <input type="checkbox" checked={completed} />
-            {text}
+            <p>{text}</p>
+            <p>{renderDate()}</p>
         </div>)
     }
 })
