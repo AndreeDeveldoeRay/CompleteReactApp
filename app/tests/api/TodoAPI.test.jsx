@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: TodoAPI.test.jsx
 * @Last modified by:   Andreee "DevelDoe" Ray
-* @Last modified time: 2017-03-02T10:57:33+01:00
+* @Last modified time: 2017-03-02T13:16:10+01:00
 */
 
 
@@ -51,6 +51,51 @@ describe('TodoAPI', () =>
             localStorage.setItem('todos',JSON.stringify(data))
             var actualData = TodoAPI.getTodos()
             Expect(actualData).toEqual(data)
+        })
+    })
+    describe('filteredTodos', () =>
+    {
+        var todos = [
+            {
+                id: 1,
+                text:'Some test1',
+                completed: true
+            },
+            {
+                id: 2,
+                text:'test2',
+                completed: false
+            },
+            {
+                id: 3,
+                text:'test3',
+                completed: true
+            }
+        ]
+        it('should return all items if showCompleted is true', () =>
+        {
+            var filteredTodos = TodoAPI.filterTodos(todos,true,'')
+            Expect(filteredTodos.length).toBe(3)
+        })
+        it('should return all uncompleted items if showCompleted is false', () =>
+        {
+            var filteredTodos = TodoAPI.filterTodos(todos,false,'')
+            Expect(filteredTodos.length).toBe(1)
+        })
+        it('should sort by completed status', () =>
+        {
+            var filteredTodos = TodoAPI.filterTodos(todos,true,'')
+            Expect(filteredTodos[0].completed).toBe(false)
+        })
+        it('should filter todos by search', () =>
+        {
+            var filteredTodos = TodoAPI.filterTodos(todos,true,'Some')
+            Expect(filteredTodos.length).toBe(1)
+        })
+        it('should return all todos if search is empty', () =>
+        {
+            var filteredTodos = TodoAPI.filterTodos(todos,true,'')
+            Expect(filteredTodos.length).toBe(3)
         })
     })
 })

@@ -3,13 +3,8 @@
 // @Email:  me@andreeray.se
 // @Filename: app.scss
 // @Last modified by:   Andreee "DevelDoe" Ray
-// @Last modified time: 2017-03-01T01:46:05+01:00
+// @Last modified time: 2017-03-02T11:50:20+01:00
 
 @import 'base/variables';
 
 *:focus {outline:0;}
-
-html, body{
-    background: $black !important;
-    color: white !important;
-}

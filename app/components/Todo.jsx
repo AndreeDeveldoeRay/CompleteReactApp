@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: TodoApp.jsx
 * @Last modified by:   Andreee "DevelDoe" Ray
-* @Last modified time: 2017-03-01T04:39:58+01:00
+* @Last modified time: 2017-03-02T11:41:05+01:00
 */
 
 
@@ -15,9 +15,9 @@ var Todo = React.createClass(
 {
     getInitialState: function () {
         return {
-            show: false,
-            search: '',
-            todos: TodoAPI.getTodos()
+            todos: TodoAPI.getTodos(),
+            showCompleted: false,
+            search: ''
         }
     },
     componentDidUpdate: function ()
@@ -44,20 +44,21 @@ var Todo = React.createClass(
         })
         this.setState({todos:todos})
     },
-    handleSearch: function (show, search)
+    handleSearch: function (showCompleted, search)
     {
         this.setState({
-            show: show,
+            showCompleted: showCompleted,
             search: search.toLowerCase()
         })
     },
     render: function ()
     {
-        var {todos} = this.state
+        var {todos,showCompleted,search} = this.state
+        var filteredTodos = TodoAPI.filterTodos(todos,showCompleted,search)
         return (
         <div>
             <Search handleSearch={this.handleSearch}/>
-            <List todos={todos} handleToggle={this.handleToggle}/>
+            <List todos={filteredTodos} handleToggle={this.handleToggle}/>
             <AddItem handleAddItem={this.handleAddItem}/>
         </div>)
     }
