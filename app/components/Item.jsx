@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Item.jsx
 * @Last modified by:   andreeray
-* @Last modified time: 2017-03-02T19:00:29+01:00
+* @Last modified time: 2017-03-02T19:49:25+01:00
 */
 
 
@@ -28,7 +28,7 @@ var Item = React.createClass
                 var message = 'Created '
                 var timestamp = createdAt
             }
-            return message + moment.unix(timestamp).format('MMM Do YYYY @ hh:mm')
+            return message + moment.unix(timestamp).format('MMMM Do YYYY HH:mm')
         }
         return (
         <div className={todoClassName} onClick={ () => { this.props.handleToggle(id) }}>
