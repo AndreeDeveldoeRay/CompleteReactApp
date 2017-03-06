@@ -3,8 +3,8 @@
 * @Date:   2017-02-20T13:54:23+01:00
 * @Email:  me@andreeray.se
 * @Filename: webpack.config.js
-* @Last modified by:   Andreee "DevelDoe" Ray
-* @Last modified time: 2017-03-01T04:37:03+01:00
+* @Last modified by:   andreeray
+* @Last modified time: 2017-03-06T18:35:33+01:00
 */
 
 
@@ -38,7 +38,8 @@ module.exports = {
             './app/api'
         ],
         alias: {
-            styles: 'app/styles/app.scss'
+            styles: 'app/styles/app.scss',
+            actions: 'app/actions/actions.jsx'
         },
         extensions: ['','.js','.jsx']
     },
