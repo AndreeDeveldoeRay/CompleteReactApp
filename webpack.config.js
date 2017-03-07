@@ -3,8 +3,8 @@
 * @Date:   2017-02-20T13:54:23+01:00
 * @Email:  me@andreeray.se
 * @Filename: webpack.config.js
-* @Last modified by:   andreeray
-* @Last modified time: 2017-03-06T18:35:33+01:00
+* @Last modified by:   develdoe
+* @Last modified time: 2017-03-07T02:52:00+01:00
 */
 
 
@@ -34,14 +34,15 @@ module.exports = {
         root: __dirname,
         modulesDirectories: [
             'node_modules',
-            './app/components',
-            './app/api'
+            './app/components'
         ],
         alias: {
-            styles: 'app/styles/app.scss',
-            actions: 'app/actions/actions.jsx'
+            styles: 'app/styles/app',
+            TodoAPI: 'app/api/TodoAPI',
+            actions: 'app/actions/actions',
+            reducers: 'app/reducers/reducers',
         },
-        extensions: ['','.js','.jsx']
+        extensions: ['','.js','.jsx','.scss']
     },
     module: {
         loaders: [

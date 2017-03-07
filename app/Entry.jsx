@@ -1,11 +1,13 @@
 /**
-* @Author: Andreee "DevelDoe" Ray
-* @Date:   2017-02-20T13:54:23+01:00
+* @Author: Andreee Ray <develdoe>
+* @Date:   2017-02-28T00:22:35+01:00
 * @Email:  me@andreeray.se
-* @Filename: Entry.jsx
-* @Last modified by:   Andreee "DevelDoe" Ray
-* @Last modified time: 2017-03-01T01:40:25+01:00
+* @Filename: entry.jsx
+* @Last modified by:   develdoe
+* @Last modified time: 2017-03-07T02:16:12+01:00
 */
+
+
 
 var React = require('react'), ReactDOM = require('react-dom'), {Route,Router,IndexRoute,hashHistory} = require('react-router'),
     Todo = require('Todo')

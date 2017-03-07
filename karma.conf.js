@@ -3,8 +3,8 @@
 * @Date:   2017-02-26T02:36:40+01:00
 * @Email:  me@andreeray.se
 * @Filename: karma.conf.js
-* @Last modified by:   andreeray
-* @Last modified time: 2017-02-26T02:42:51+01:00
+* @Last modified by:   develdoe
+* @Last modified time: 2017-03-07T02:29:36+01:00
 */
 
 var webpackConfig = require('./webpack.config.js')
