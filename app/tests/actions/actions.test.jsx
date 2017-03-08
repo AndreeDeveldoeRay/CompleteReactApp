@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: actions.test.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-07T02:52:05+01:00
+* @Last modified time: 2017-03-08T01:37:32+01:00
 */
 
 
@@ -37,7 +37,7 @@ describe('Actions', () => {
     })
     it('Should toggle todo completed', () => {
         var action = {
-            type: 'TOGGEL_TODO',
+            type: 'TOGGLE_TODO',
             id: 0
         }
         var res = actions.toggleTodo(action.id)

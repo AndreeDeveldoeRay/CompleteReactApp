@@ -4,20 +4,20 @@
 * @Email:  me@andreeray.se
 * @Filename: reducers.test.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-07T03:20:43+01:00
+* @Last modified time: 2017-03-08T01:35:22+01:00
 */
 
-var Expect = require('expect'), Reducers = require('reducers'), DeepFreeze = require('deep-freeze-strict')
+var expect = require('expect'), reducers = require('reducers'), deepfreeze = require('deep-freeze-strict')
 
-describe('Reducers', () => {
+describe('reducers', () => {
     describe('searchTextReducer', () => {
         it('should set search', () => {
             var action = {
                 type: 'SET_SEARCH_TEXT',
                 search: 'test'
             }
-            var res = Reducers.searchTextReducer(DeepFreeze(''),DeepFreeze(action))
-            Expect(res).toEqual(action.search)
+            var res = reducers.searchTextReducer(deepfreeze(''),deepfreeze(action))
+            expect(res).toEqual(action.search)
         })
     })
     describe('showCompletedReducer', () => {
@@ -25,8 +25,35 @@ describe('Reducers', () => {
             var action = {
                 type: 'TOGGLE_SHOW_COMPLETED'
             }
-            var res = Reducers.showCompletedReducer(DeepFreeze(false),DeepFreeze(action))
-            Expect(res).toEqual(true)
+            var res = reducers.showCompletedReducer(deepfreeze(false),deepfreeze(action))
+            expect(res).toEqual(true)
+        })
+    })
+    describe('todosReducer', () => {
+        it('should add new todo', () => {
+            var action = {
+                type: 'ADD_TODO',
+                text: 'test'
+            }
+            var res = reducers.todosReducer(deepfreeze([]),deepfreeze(action))
+            expect(res.length).toEqual(1)
+            expect(res[0].text).toEqual(action.text)
+        })
+        it('should toggle todo', () => {
+            var todos = [{
+                id: '123',
+                text: 'test',
+                completed: true,
+                createdAt: 123,
+                completedAt: 125
+            }]
+            var action = {
+                type: 'TOGGLE_TODO',
+                id: '123'
+            }
+            var res = reducers.todosReducer(deepfreeze(todos),deepfreeze(action))
+            expect(res[0].completed).toEqual(false)
+            expect(res[0].completedAt).toEqual(undefined)
         })
     })
 })

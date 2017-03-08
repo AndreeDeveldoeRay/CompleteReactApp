@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: actions.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-07T02:59:08+01:00
+* @Last modified time: 2017-03-08T01:33:14+01:00
 */
 
 
@@ -28,7 +28,7 @@ export var addTodo = (text) => {
 }
 export var toggleTodo = (id) => {
     return {
-        type: 'TOGGEL_TODO',
+        type: 'TOGGLE_TODO',
         id
     }
 }
