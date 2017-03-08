@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: webpack.config.js
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-08T02:16:24+01:00
+* @Last modified time: 2017-03-08T06:47:46+01:00
 */
 
 
@@ -15,7 +15,7 @@ module.exports = {
     entry: [
         'script!jquery/dist/jquery.min.js',
         'script!foundation-sites/dist/js/foundation.min.js',
-        './app/entry.jsx'
+        './app/app/app.jsx'
     ],
     externals: {
         jquery: 'jQuery'
@@ -34,7 +34,7 @@ module.exports = {
         root: __dirname,
         modulesDirectories: [
             'node_modules',
-            './app/components'
+            './app/components/todo'
         ],
         alias: {
             styles: 'app/styles/app',
