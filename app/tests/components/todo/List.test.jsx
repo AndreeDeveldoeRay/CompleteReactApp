@@ -4,20 +4,21 @@
 * @Email:  me@andreeray.se
 * @Filename: List.test.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-08T07:50:19+01:00
+* @Last modified time: 2017-03-08T08:46:14+01:00
 */
 
 
 
 var React = require('react'),
     ReactDOM = require('react-dom'),
+    {Provider} = require('react-redux'),
     TestUtils = require('react-addons-test-utils'),
     Expect = require('expect'),
-    $ = require('jQuery'),
-    Item = require('Item')
+    $ = require('jQuery')
 
-
+import {store} from 'store'
 import ConnectedList, {List} from 'List'
+import ConnectedItem, {Item} from 'Item'
 
 describe('List', () =>
 {
@@ -27,9 +28,29 @@ describe('List', () =>
     })
     it('should render one Item component for each items', () =>
     {
-        var todos = [ {id:1}, {id:2} ]
-        var list = TestUtils.renderIntoDocument(<List todos={todos}/>)
-        var listComponents = TestUtils.scryRenderedComponentsWithType(list, Item)
+        var todos = [{
+            id:1,
+            text: 'test',
+            completed: false,
+            completedAt: undefined,
+            createdAt: 500
+        }, {
+            id:2,
+            text: 'test 2',
+            completed: false,
+            completedAt: undefined,
+            createdAt: 500
+        }]
+        var st = store({
+            todos
+        })
+        var provider = TestUtils.renderIntoDocument(
+            <Provider store={st}>
+                <ConnectedList/>
+            </Provider>
+        )
+        var list = TestUtils.scryRenderedComponentsWithType(provider, ConnectedList)[0]
+        var listComponents = TestUtils.scryRenderedComponentsWithType(list, ConnectedItem)
         Expect(listComponents.length).toBe(todos.length)
     })
     it('should render empty message if no todos', () =>

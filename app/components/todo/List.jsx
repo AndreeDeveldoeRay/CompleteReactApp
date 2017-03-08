@@ -4,12 +4,14 @@
 * @Email:  me@andreeray.se
 * @Filename: List.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-08T07:51:15+01:00
+* @Last modified time: 2017-03-08T08:40:02+01:00
 */
 
 
 
-var React = require('react'), Item = require('Item'), {connect} = require('react-redux')
+var React = require('react'), {connect} = require('react-redux')
+
+import Item from 'Item'
 
 export var List = React.createClass
 ({
