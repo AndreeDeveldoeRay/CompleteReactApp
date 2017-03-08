@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: entry.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-08T03:03:28+01:00
+* @Last modified time: 2017-03-08T09:13:30+01:00
 */
 
 var React = require('react'), ReactDOM = require('react-dom'), {Route,Router,IndexRoute,hashHistory} = require('react-router'), {Provider} = require('react-redux'), Todo = require('Todo'), action = require('actions'), store = require('store').store()
@@ -13,8 +13,6 @@ store.subscribe(() => {
     console.log('New state', store.getState())
 })
 
-store.dispatch(action.addTodo('booting....'))
-store.dispatch(action.setSearchText('testing search'))
 store.dispatch(action.toggleShowCompleted())
 
 // Load foundation

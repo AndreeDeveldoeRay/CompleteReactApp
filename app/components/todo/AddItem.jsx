@@ -3,24 +3,27 @@
 * @Date:   2017-02-28T02:08:46+01:00
 * @Email:  me@andreeray.se
 * @Filename: AddItem.jsx
-* @Last modified by:   Andreee "DevelDoe" Ray
-* @Last modified time: 2017-02-28T03:12:27+01:00
+* @Last modified by:   develdoe
+* @Last modified time: 2017-03-08T08:55:57+01:00
 */
 
 
 
-var React = require('react')
+var React = require('react'),
+    {connect} = require('react-redux'),
+    actions = require('actions')
 
-var Input = React.createClass
+export var AddItem = React.createClass
 ({
     onSubmit: function (e)
     {
         e.preventDefault()
+        var {dispatch} = this.props
         var text = this.refs.text.value
         if(text.length > 0)
         {
             this.refs.text.value = ''
-            this.props.handleAddItem(text)
+            dispatch(actions.addTodo(text))
         }
         else
         {
@@ -39,4 +42,4 @@ var Input = React.createClass
         </div>)
     }
 })
-module.exports = Input
+export default connect()(AddItem)

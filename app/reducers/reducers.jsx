@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: reducers.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-08T01:36:44+01:00
+* @Last modified time: 2017-03-08T09:11:09+01:00
 */
 
 var uuid = require('node-uuid'), moment = require('moment')
@@ -48,6 +48,8 @@ export var todosReducer = (state = [], action) => {
                         completed: nextCompleted,
                         completedAt: nextCompleted ? moment().unix() : undefined
                     }
+                } else {
+                    return todo
                 }
             })
         default:

@@ -4,17 +4,17 @@
 * @Email:  me@andreeray.se
 * @Filename: TodoApp.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-08T07:43:46+01:00
+* @Last modified time: 2017-03-08T09:09:59+01:00
 */
 
 var React = require('react'),
-    AddItem = require('AddItem'),
     Search = require('Search'),
     uuid = require('node-uuid'),
     TodoAPI = require('TodoAPI'),
     moment = require('moment')
 
 import List from 'List'
+import AddItem from 'AddItem'
 
 var Todo = React.createClass(
 {
