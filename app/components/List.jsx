@@ -3,14 +3,13 @@
 * @Date:   2017-02-28T01:03:37+01:00
 * @Email:  me@andreeray.se
 * @Filename: List.jsx
-* @Last modified by:   andreeray
-* @Last modified time: 2017-03-02T18:57:22+01:00
+* @Last modified by:   develdoe
+* @Last modified time: 2017-03-08T03:09:50+01:00
 */
 
 
 
-var React = require('react'),
-    Item = require('Item')
+var React = require('react'), Item = require('Item'), {connect} = require('react-redux')
 
 var List = React.createClass
 ({
@@ -23,7 +22,7 @@ var List = React.createClass
             return todos.map((item) =>
             {
                 return (
-                    <Item key={item.id} {...item} handleToggle={this.props.handleToggle}/>
+                    <Item key={item.id} {...item} />
                 )
             })
         }
@@ -33,4 +32,10 @@ var List = React.createClass
         </div>)
     }
 })
-module.exports = List
+module.exports = connect(
+    (state) => {
+        return {
+            todos: state.todos
+        }
+    }
+)(List)

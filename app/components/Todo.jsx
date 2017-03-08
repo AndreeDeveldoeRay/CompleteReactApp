@@ -3,8 +3,8 @@
 * @Date:   2017-02-28T00:33:36+01:00
 * @Email:  me@andreeray.se
 * @Filename: TodoApp.jsx
-* @Last modified by:   Andreee "DevelDoe" Ray
-* @Last modified time: 2017-03-02T16:06:57+01:00
+* @Last modified by:   develdoe
+* @Last modified time: 2017-03-08T03:05:49+01:00
 */
 
 
@@ -39,17 +39,6 @@ var Todo = React.createClass(
             ]
         })
     },
-    handleToggle: function (id) {
-        var todos = this.state.todos.map((todo)=>{
-            if (todo.id === id)
-            {
-                todo.completed = !todo.completed
-                todo.completedAt = todo.completed ? moment().unix() : undefined
-            }
-            return todo
-        })
-        this.setState({todos:todos})
-    },
     handleSearch: function (showCompleted, search)
     {
         this.setState({
@@ -64,7 +53,7 @@ var Todo = React.createClass(
         return (
         <div>
             <Search handleSearch={this.handleSearch}/>
-            <List todos={filteredTodos} handleToggle={this.handleToggle}/>
+            <List/>
             <AddItem handleAddItem={this.handleAddItem}/>
         </div>)
     }
