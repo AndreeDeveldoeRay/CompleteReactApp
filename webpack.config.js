@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: webpack.config.js
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-07T02:52:00+01:00
+* @Last modified time: 2017-03-08T02:16:24+01:00
 */
 
 
@@ -41,6 +41,7 @@ module.exports = {
             TodoAPI: 'app/api/TodoAPI',
             actions: 'app/actions/actions',
             reducers: 'app/reducers/reducers',
+            store: 'app/store/store'
         },
         extensions: ['','.js','.jsx','.scss']
     },
