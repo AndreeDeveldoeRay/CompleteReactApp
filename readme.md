@@ -4,11 +4,11 @@
 @Email:  me@andreeray.se
 @Filename: readme.md
 @Last modified by:   develdoe
-@Last modified time: 2017-03-10T04:06:14+01:00
+@Last modified time: 2017-03-10T04:08:09+01:00
 -->
 
 
 
-# React - ToDo
+# React Implementation Tests
 
 A todo application to showcase testing
