@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: actions.test.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-10T02:39:40+01:00
+* @Last modified time: 2017-03-10T03:23:01+01:00
 */
 
 
@@ -33,6 +33,21 @@ describe('Actions', () => {
             text: 'test'
         }
         var res = actions.addTodo(action.text)
+        expect(res).toEqual(action)
+    })
+    it('should generate add todos action object', () => {
+        var todos = [{
+            id: 0,
+            text: 'test',
+            completed: false,
+            completedAt: undefined,
+            createdAt: 33000
+        }]
+        var action = {
+            type: 'ADD_TODOS',
+            todos
+        }
+        var res = actions.addTodos(todos)
         expect(res).toEqual(action)
     })
     it('Should toggle todo completed', () => {

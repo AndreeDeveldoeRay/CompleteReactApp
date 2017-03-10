@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: reducers.test.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-10T02:42:57+01:00
+* @Last modified time: 2017-03-10T03:27:34+01:00
 */
 
 var expect = require('expect'), reducers = require('reducers'), deepfreeze = require('deep-freeze-strict')
@@ -54,6 +54,22 @@ describe('reducers', () => {
             var res = reducers.todosReducer(deepfreeze(todos),deepfreeze(action))
             expect(res[0].completed).toEqual(false)
             expect(res[0].completedAt).toEqual(undefined)
+        })
+        it('should add existing todos', () => {
+            var todos = [{
+                id: 0,
+                text: 'test',
+                completed: false,
+                completedAt: undefined,
+                createdAt: 33000
+            }]
+            var action = {
+                type: 'ADD_TODOS',
+                todos
+            }
+            var res = reducers.todosReducer(deepfreeze([]), deepfreeze(action))
+            expect(res[0]).toEqual(todos[0])
+            expect(res.length).toEqual(1)
         })
     })
 })

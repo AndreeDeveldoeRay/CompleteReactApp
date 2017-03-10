@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: reducers.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-10T02:07:16+01:00
+* @Last modified time: 2017-03-10T03:24:35+01:00
 */
 
 var uuid = require('node-uuid'), moment = require('moment')
@@ -38,6 +38,11 @@ export var todosReducer = (state = [], action) => {
                     createdAt: moment().unix(),
                     completedAt: undefined
                 }
+            ]
+        case 'ADD_TODOS':
+            return [
+                ...state,
+                ...action.todos
             ]
         case 'TOGGLE_TODO':
             return state.map((todo) => {

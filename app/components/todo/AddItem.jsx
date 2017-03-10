@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: AddItem.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-08T08:55:57+01:00
+* @Last modified time: 2017-03-10T03:45:15+01:00
 */
 
 
@@ -20,13 +20,11 @@ export var AddItem = React.createClass
         e.preventDefault()
         var {dispatch} = this.props
         var text = this.refs.text.value
-        if(text.length > 0)
-        {
+        if(text.length > 0) {
             this.refs.text.value = ''
             dispatch(actions.addTodo(text))
         }
-        else
-        {
+        else {
             this.refs.text.focus()
         }
 

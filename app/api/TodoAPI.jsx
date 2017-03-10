@@ -3,17 +3,16 @@
 * @Date:   2017-03-01T04:35:03+01:00
 * @Email:  me@andreeray.se
 * @Filename: TodoAPI.jsx
-* @Last modified by:   Andreee "DevelDoe" Ray
-* @Last modified time: 2017-03-02T13:19:15+01:00
+* @Last modified by:   develdoe
+* @Last modified time: 2017-03-10T03:41:37+01:00
 */
 
 
 module.exports = {
-    setTodos: function (todos)
-    {
-        if (Array.isArray(todos))
-        {
+    setTodos: function (todos) {
+        if (Array.isArray(todos)) {
             localStorage.setItem('todos',JSON.stringify(todos))
+            console.log(todos)
             return todos
         }
     },
