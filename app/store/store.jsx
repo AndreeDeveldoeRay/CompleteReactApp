@@ -4,16 +4,16 @@
 * @Email:  me@andreeray.se
 * @Filename: store.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-08T08:40:00+01:00
+* @Last modified time: 2017-03-10T02:07:27+01:00
 */
 
 
 
-var redux = require('redux'), {searchTextReducer, showCompletedReducer, todosReducer} = require('reducers')
+var redux = require('redux'), {searchStringReducer, showCompletedReducer, todosReducer} = require('reducers')
 
 export var store = (init = {}) => {
     var reducer = redux.combineReducers({
-        searchText: searchTextReducer,
+        searchString: searchStringReducer,
         showCompleted: showCompletedReducer,
         todos: todosReducer
     })

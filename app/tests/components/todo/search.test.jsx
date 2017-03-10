@@ -1,15 +1,16 @@
 /**
-* @Author: Andreee "DevelDoe" Ray
-* @Date:   2017-02-28T01:30:12+01:00
+* @Author: Andreee Ray <develdoe>
+* @Date:   2017-03-01T01:59:52+01:00
 * @Email:  me@andreeray.se
-* @Filename: Root.test.jsx
-* @Last modified by:   Andreee "DevelDoe" Ray
-* @Last modified time: 2017-03-01T02:22:22+01:00
+* @Filename: search.test.jsx
+* @Last modified by:   develdoe
+* @Last modified time: 2017-03-10T02:49:01+01:00
 */
 
 
 
-var React = require('react'), ReactDOM = require('react-dom'), TestUtils = require('react-addons-test-utils'), Expect = require('expect'), Search = require('Search')
+var React = require('react'), ReactDOM = require('react-dom'), TestUtils = require('react-addons-test-utils'), Expect = require('expect')
+import {Search} from 'Search'
 
 describe('Search', () =>
 {
@@ -17,21 +18,28 @@ describe('Search', () =>
     {
         Expect(Search).toExist()
     })
-    it('should call handleSearch with entered input text', () =>
+    it('should dispatch SET_SEARCH_STRING on input change', () =>
     {
-        var spy = Expect.createSpy()
         var text = "test"
-        var search = TestUtils.renderIntoDocument(<Search handleSearch={spy}/>)
-        search.refs.textSearch.value = text
-        TestUtils.Simulate.change(search.refs.textSearch)
-        Expect(spy).toHaveBeenCalledWith(false,'test')
-    })
-    it('should call handleSearch with proper checked value', () =>
-    {
+        var action = {
+            type: 'SET_SEARCH_STRING',
+            searchString: 'test'
+        }
         var spy = Expect.createSpy()
-        var search = TestUtils.renderIntoDocument(<Search handleSearch={spy}/>)
-        search.refs.checkboxShow.checked = true
-        TestUtils.Simulate.change(search.refs.checkboxShow)
-        Expect(spy).toHaveBeenCalledWith(true, '')
+        var search = TestUtils.renderIntoDocument(<Search dispatch={spy}/>)
+        search.refs.searchString.value = text
+        TestUtils.Simulate.change(search.refs.searchString)
+        Expect(spy).toHaveBeenCalledWith(action)
+    })
+    it('should dispatch TOGGLE_SHOW_COMPLETED when checkbox checked', () =>
+    {
+        var action = {
+            type: 'TOGGLE_SHOW_COMPLETED'
+        }
+        var spy = Expect.createSpy()
+        var search = TestUtils.renderIntoDocument(<Search dispatch={spy}/>)
+        search.refs.showCompleted.checked = true
+        TestUtils.Simulate.change(search.refs.showCompleted)
+        Expect(spy).toHaveBeenCalledWith(action)
     })
 })

@@ -4,17 +4,17 @@
 * @Email:  me@andreeray.se
 * @Filename: TodoApp.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-08T09:09:59+01:00
+* @Last modified time: 2017-03-10T02:32:48+01:00
 */
 
 var React = require('react'),
-    Search = require('Search'),
     uuid = require('node-uuid'),
     TodoAPI = require('TodoAPI'),
     moment = require('moment')
 
 import List from 'List'
 import AddItem from 'AddItem'
+import Search from 'Search'
 
 var Todo = React.createClass(
 {
@@ -57,7 +57,7 @@ var Todo = React.createClass(
         var filteredTodos = TodoAPI.filterTodos(todos,showCompleted,search)
         return (
         <div>
-            <Search handleSearch={this.handleSearch}/>
+            <Search/>
             <List/>
             <AddItem handleAddItem={this.handleAddItem}/>
         </div>)

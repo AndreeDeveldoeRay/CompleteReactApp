@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: actions.test.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-08T01:37:32+01:00
+* @Last modified time: 2017-03-10T02:39:40+01:00
 */
 
 
@@ -14,10 +14,10 @@ var expect = require('expect'), actions = require('actions')
 describe('Actions', () => {
     it('Should generate search text action',() => {
         var action = {
-            type: 'SET_SEARCH_TEXT',
-            search: 'test'
+            type: 'SET_SEARCH_STRING',
+            searchString: 'test'
         }
-        var res = actions.setSearchText(action.search)
+        var res = actions.setSearchString(action.searchString)
         expect(res).toEqual(action)
     })
     it('Should toggle completed todos',() => {

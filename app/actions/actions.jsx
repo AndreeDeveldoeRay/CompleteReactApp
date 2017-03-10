@@ -4,15 +4,15 @@
 * @Email:  me@andreeray.se
 * @Filename: actions.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-08T01:33:14+01:00
+* @Last modified time: 2017-03-10T02:07:10+01:00
 */
 
 
 
-export var setSearchText = (search) => {
+export var setSearchString = (searchString) => {
     return {
-        type: 'SET_SEARCH_TEXT',
-        search
+        type: 'SET_SEARCH_STRING',
+        searchString
     }
 }
 export var toggleShowCompleted = () => {

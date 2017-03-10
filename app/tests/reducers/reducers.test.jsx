@@ -4,20 +4,20 @@
 * @Email:  me@andreeray.se
 * @Filename: reducers.test.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-08T01:35:22+01:00
+* @Last modified time: 2017-03-10T02:42:57+01:00
 */
 
 var expect = require('expect'), reducers = require('reducers'), deepfreeze = require('deep-freeze-strict')
 
 describe('reducers', () => {
-    describe('searchTextReducer', () => {
+    describe('searchStringReducer', () => {
         it('should set search', () => {
             var action = {
-                type: 'SET_SEARCH_TEXT',
-                search: 'test'
+                type: 'SET_SEARCH_STRING',
+                searchString: 'test'
             }
-            var res = reducers.searchTextReducer(deepfreeze(''),deepfreeze(action))
-            expect(res).toEqual(action.search)
+            var res = reducers.searchStringReducer(deepfreeze(''),deepfreeze(action))
+            expect(res).toEqual(action.searchString)
         })
     })
     describe('showCompletedReducer', () => {

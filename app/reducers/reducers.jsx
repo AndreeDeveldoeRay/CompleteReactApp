@@ -4,16 +4,16 @@
 * @Email:  me@andreeray.se
 * @Filename: reducers.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-08T09:11:09+01:00
+* @Last modified time: 2017-03-10T02:07:16+01:00
 */
 
 var uuid = require('node-uuid'), moment = require('moment')
 
-export var searchTextReducer = (state = '', action) => {
+export var searchStringReducer = (state = '', action) => {
     switch (action.type)
     {
-        case 'SET_SEARCH_TEXT':
-            return action.search
+        case 'SET_SEARCH_STRING':
+            return action.searchString
         default:
             return state
     }
