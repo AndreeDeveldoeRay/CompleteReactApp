@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: entry.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-10T03:51:09+01:00
+* @Last modified time: 2017-03-10T03:52:57+01:00
 */
 
 var React = require('react'),
@@ -18,7 +18,6 @@ TodoAPI = require('TodoAPI')
 
 store.subscribe(() => {
   var state = store.getState();
-  console.log('New state', state);
   TodoAPI.setTodos(state.todos);
 });
 
