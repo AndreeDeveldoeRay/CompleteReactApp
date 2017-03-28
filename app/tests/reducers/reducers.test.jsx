@@ -3,8 +3,8 @@
 * @Date:   2017-03-07T02:28:01+01:00
 * @Email:  me@andreeray.se
 * @Filename: reducers.test.jsx
-* @Last modified by:   develdoe
-* @Last modified time: 2017-03-10T03:27:34+01:00
+ * @Last modified by:   develdoe
+ * @Last modified time: 2017-03-28T14:40:50+02:00
 */
 
 var expect = require('expect'), reducers = require('reducers'), deepfreeze = require('deep-freeze-strict')
@@ -33,11 +33,16 @@ describe('reducers', () => {
         it('should add new todo', () => {
             var action = {
                 type: 'ADD_TODO',
-                text: 'test'
+                todo: {
+                    id: 'asd123',
+                    text: 'test',
+                    completed: false,
+                    completedAt: 1234
+                }
             }
             var res = reducers.todosReducer(deepfreeze([]),deepfreeze(action))
             expect(res.length).toEqual(1)
-            expect(res[0].text).toEqual(action.text)
+            expect(res[0]).toEqual(action.todo)
         })
         it('should toggle todo', () => {
             var todos = [{

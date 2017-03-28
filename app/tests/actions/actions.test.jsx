@@ -3,8 +3,8 @@
 * @Date:   2017-03-06T18:34:54+01:00
 * @Email:  me@andreeray.se
 * @Filename: actions.test.jsx
-* @Last modified by:   develdoe
-* @Last modified time: 2017-03-10T03:23:01+01:00
+ * @Last modified by:   develdoe
+ * @Last modified time: 2017-03-28T14:50:16+02:00
 */
 
 
@@ -30,9 +30,14 @@ describe('Actions', () => {
     it('Should add todos',() => {
         var action = {
             type: 'ADD_TODO',
-            text: 'test'
+            todo: {
+                id: 'asd123',
+                text: 'test',
+                completed: false,
+                completedAt: 1234
+            }
         }
-        var res = actions.addTodo(action.text)
+        var res = actions.addTodo(action.todo)
         expect(res).toEqual(action)
     })
     it('should generate add todos action object', () => {
