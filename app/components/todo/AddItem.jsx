@@ -3,8 +3,8 @@
 * @Date:   2017-02-28T02:08:46+01:00
 * @Email:  me@andreeray.se
 * @Filename: AddItem.jsx
-* @Last modified by:   develdoe
-* @Last modified time: 2017-03-10T03:45:15+01:00
+ * @Last modified by:   develdoe
+ * @Last modified time: 2017-03-28T12:43:16+02:00
 */
 
 
@@ -22,7 +22,7 @@ export var AddItem = React.createClass
         var text = this.refs.text.value
         if(text.length > 0) {
             this.refs.text.value = ''
-            dispatch(actions.addTodo(text))
+            dispatch(actions.startAddTodo(text))
         }
         else {
             this.refs.text.focus()

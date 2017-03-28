@@ -3,8 +3,8 @@
 * @Date:   2017-02-20T13:54:23+01:00
 * @Email:  me@andreeray.se
 * @Filename: webpack.config.js
-* @Last modified by:   develdoe
-* @Last modified time: 2017-03-08T06:47:46+01:00
+ * @Last modified by:   develdoe
+ * @Last modified time: 2017-03-28T12:23:58+02:00
 */
 
 
@@ -15,7 +15,7 @@ module.exports = {
     entry: [
         'script!jquery/dist/jquery.min.js',
         'script!foundation-sites/dist/js/foundation.min.js',
-        './app/app/app.jsx'
+        './app/entry'
     ],
     externals: {
         jquery: 'jQuery'
@@ -37,11 +37,12 @@ module.exports = {
             './app/components/todo'
         ],
         alias: {
+            app: 'app',
             styles: 'app/styles/app',
             TodoAPI: 'app/api/TodoAPI',
-            actions: 'app/actions/actions',
-            reducers: 'app/reducers/reducers',
-            store: 'app/store/store'
+            actions: 'app/redux/actions',
+            reducers: 'app/redux/reducers',
+            store: 'app/redux/store'
         },
         extensions: ['','.js','.jsx','.scss']
     },
