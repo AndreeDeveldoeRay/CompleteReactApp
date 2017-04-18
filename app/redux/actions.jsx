@@ -4,7 +4,7 @@
  * @Email:  me@andreeray.se
  * @Filename: actions.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-04-06T14:09:05+02:00
+ * @Last modified time: 2017-04-18T15:36:52+02:00
  *
  * @Description:
  *   Instead of returning objects we return functions to be able to work
@@ -74,7 +74,7 @@ export var startToggleTodo = (id, completed) => {
             completed,
             completedAt: completed ? moment().unix() : null
         }
-        todoRef.update(updates).then(() => {
+        return todoRef.update(updates).then(() => {
             dispatch(updateTodo(id,updates))
 
             // logging the result

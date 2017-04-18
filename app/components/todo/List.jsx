@@ -4,25 +4,25 @@
 * @Email:  me@andreeray.se
 * @Filename: List.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-04-17T18:41:46+02:00
+ * @Last modified time: 2017-04-18T13:42:43+02:00
 */
 
 
 
-var React = require('react'), {connect} = require('react-redux'), TodoAPI = require('TodoAPI')
+var React = require('react'),
+    {connect} = require('react-redux'),
+    TodoAPI = require('TodoAPI')
 
 import Item from 'Item'
 
-
-export var List = React.createClass
-({
-    render: function () {
+export var List = React.createClass({
+    render () {
         var
 
         {todos, showCompleted, searchString} = this.props,
 
         renderItems = () => {
-            
+
             if (todos.length === 0) return <p className="contain__message">Nothing to do</p>
 
             return TodoAPI.filterTodos(todos, showCompleted, searchString).map((item) => {

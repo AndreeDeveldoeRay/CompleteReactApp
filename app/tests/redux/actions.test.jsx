@@ -4,13 +4,14 @@
 * @Email:  me@andreeray.se
 * @Filename: actions.test.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-04-06T14:18:30+02:00
+ * @Last modified time: 2017-04-18T15:33:27+02:00
 */
 
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 var expect = require('expect')
 var actions = require('actions')
+import firebase, {firebaseRef} from 'app/firebase'
 
 var createMockStore = configureMockStore([thunk])
 
@@ -45,7 +46,7 @@ describe('Actions', () => {
     })
     it('should create todo and dispatch ADD_TODO', (done) => {
         const store = createMockStore({})
-        const todoText = 'test'
+        const todoText = 'should create todo and dispatch ADD_TODO'
 
         store.dispatch(actions.startAddTodo(todoText)).then(() => {
             const actions = store.getActions()
@@ -82,5 +83,42 @@ describe('Actions', () => {
         }
         var res = actions.updateTodo(action.id, action.updates)
         expect(res).toEqual(action)
+    })
+    describe('Tests with firebase', () => {
+        var testTodoRef;
+
+        beforeEach((done) => {
+            testTodoRef = firebaseRef.child('todos').push()
+
+            testTodoRef.set({
+                text: 'Tests with firebase',
+                completed: false,
+                createdAt: 23354345
+            }).then( () => done() )
+        })
+
+        afterEach((done) => {
+            testTodoRef.remove().then(() => done())
+        })
+
+        it('should toggle todo and dispatch UPDATE_TODO action', (done) => {
+            const store = createMockStore({})
+            const action = actions.startToggleTodo(testTodoRef.key, true)
+
+            console.log(action)
+
+            store.dispatch(action).then(() => {
+
+                const mockActions = store.getActions()
+
+                expect(mockActions[0]).toInclude({
+                    type: 'UPDATE_TODO',
+                    id: testTodoRef.key
+                })
+                expect(mockActions[0].updates).toInclude({ completed: true })
+                expect(mockActions[0].updates.completedAt).toExist()
+                done()
+            }, done)
+        })
     })
 })
