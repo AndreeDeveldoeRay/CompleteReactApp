@@ -3,23 +3,22 @@
 * @Date:   2017-02-28T00:22:35+01:00
 * @Email:  me@andreeray.se
 * @Filename: entry.jsx
-* @Last modified by:   develdoe
-* @Last modified time: 2017-03-10T03:52:57+01:00
+ * @Last modified by:   develdoe
+ * @Last modified time: 2017-04-05T20:24:57+02:00
 */
 
-var React = require('react'),
-ReactDOM = require('react-dom'),
-{Route,Router,IndexRoute,hashHistory} = require('react-router'),
-{Provider} = require('react-redux'),
-Todo = require('Todo'),
-actions = require('actions'),
-store = require('store').store(),
-TodoAPI = require('TodoAPI')
+import React, {component} from 'react'
+import ReactDOM from 'react-dom'
+var {Provider} = require('react-redux')
+var Todo = require('Todo')
+var actions = require('actions')
+var store = require('store').configureStore()
+var TodoAPI = require('TodoAPI')
 
 store.subscribe(() => {
-  var state = store.getState();
-  TodoAPI.setTodos(state.todos);
-});
+  var state = store.getState()
+  TodoAPI.setTodos(state.todos)
+})
 
 var initialTodos = TodoAPI.getTodos()
 store.dispatch(actions.addTodos(initialTodos))

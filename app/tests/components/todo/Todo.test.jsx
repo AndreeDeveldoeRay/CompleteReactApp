@@ -3,8 +3,8 @@
 * @Date:   2017-02-28T01:30:12+01:00
 * @Email:  me@andreeray.se
 * @Filename: Root.test.jsx
-* @Last modified by:   develdoe
-* @Last modified time: 2017-03-08T07:46:19+01:00
+ * @Last modified by:   develdoe
+ * @Last modified time: 2017-04-05T20:29:06+02:00
 */
 
 var React = require('react'),
@@ -22,7 +22,7 @@ describe('Todo', () => {
         Expect(Todo).toExist()
     })
     it('should render list', () => {
-        var store = Store.store()
+        var store = Store.configureStore()
         var provider = TestUtils.renderIntoDocument(
             <Provider store={store}>
                 <Todo/>

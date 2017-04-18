@@ -3,10 +3,9 @@
 * @Date:   2017-02-28T01:38:02+01:00
 * @Email:  me@andreeray.se
 * @Filename: List.test.jsx
-* @Last modified by:   develdoe
-* @Last modified time: 2017-03-08T08:46:14+01:00
+ * @Last modified by:   develdoe
+ * @Last modified time: 2017-04-05T20:28:30+02:00
 */
-
 
 
 var React = require('react'),
@@ -16,7 +15,7 @@ var React = require('react'),
     Expect = require('expect'),
     $ = require('jQuery')
 
-import {store} from 'store'
+import {configureStore} from 'store'
 import ConnectedList, {List} from 'List'
 import ConnectedItem, {Item} from 'Item'
 
@@ -41,7 +40,7 @@ describe('List', () =>
             completedAt: undefined,
             createdAt: 500
         }]
-        var st = store({
+        var st = configureStore({
             todos
         })
         var provider = TestUtils.renderIntoDocument(

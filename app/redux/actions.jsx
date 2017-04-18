@@ -4,7 +4,7 @@
  * @Email:  me@andreeray.se
  * @Filename: actions.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-28T12:42:10+02:00
+ * @Last modified time: 2017-04-06T14:09:05+02:00
  *
  * @Description:
  *   Instead of returning objects we return functions to be able to work
@@ -34,6 +34,8 @@ export var addTodo = (todo) => {
 export var startAddTodo = (text) => {
     return (dispatch, getState) => {
 
+        // normaly you would use node-uuid to create an id, but firebase takes care of it
+        // normaly you would set completed att to undefined, but firebase takes a null value
         var todo = {
             text,
             completed: false,
@@ -43,7 +45,7 @@ export var startAddTodo = (text) => {
 
         var todoRef = firebaseRef.child('todos').push(todo)
 
-        return todoRef.then(()=>{
+        return todoRef.then(() => {
             dispatch(addTodo({
                 ...todo,
                 id: todoRef.key
@@ -58,9 +60,29 @@ export var addTodos = (todos) => {
         todos
     }
 }
-export var toggleTodo = (id) => {
+export var updateTodo = (id, updates) => {
     return {
-        type: 'TOGGLE_TODO',
-        id
+        type: 'UPDATE_TODO',
+        id,
+        updates
+    }
+}
+export var startToggleTodo = (id, completed) => {
+    return (dispatch, getState) => {
+        var todoRef = firebaseRef.child(`todos/${id}`)
+        var updates = {
+            completed,
+            completedAt: completed ? moment().unix() : null
+        }
+        todoRef.update(updates).then(() => {
+            dispatch(updateTodo(id,updates))
+
+            // logging the result
+            firebaseRef.child(`todos/${id}/completed`).once('value').then((ss) => {
+                console.log(`completed set to:`, ss.val())
+            })
+        }, (error) => {
+            console.log('error',error)
+        })
     }
 }

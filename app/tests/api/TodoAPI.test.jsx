@@ -3,26 +3,18 @@
 * @Date:   2017-03-02T10:33:23+01:00
 * @Email:  me@andreeray.se
 * @Filename: TodoAPI.test.jsx
-* @Last modified by:   Andreee "DevelDoe" Ray
-* @Last modified time: 2017-03-02T13:16:10+01:00
+ * @Last modified by:   develdoe
+ * @Last modified time: 2017-03-28T23:07:04+02:00
 */
-
 
 
 var Expect = require('expect'), TodoAPI = require('TodoAPI')
 
 describe('TodoAPI', () =>
 {
-    beforeEach(()=>
-    {
-        localStorage.removeItem('todos')
-    })
-    it('exist', () =>
-    {
-        Expect(TodoAPI).toExist()
-    })
-    describe('setTodos', () =>
-    {
+    beforeEach(()=> { localStorage.removeItem('todos') })
+    it('exist', () => { Expect(TodoAPI).toExist() })
+    describe('setTodos', () => {
         it('should set valid todos array', () =>
         {
             var data = [{id:1,text:'test',completed:false}]

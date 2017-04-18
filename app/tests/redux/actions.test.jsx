@@ -4,12 +4,15 @@
 * @Email:  me@andreeray.se
 * @Filename: actions.test.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-28T14:50:16+02:00
+ * @Last modified time: 2017-04-06T14:18:30+02:00
 */
 
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
+var expect = require('expect')
+var actions = require('actions')
 
-
-var expect = require('expect'), actions = require('actions')
+var createMockStore = configureMockStore([thunk])
 
 describe('Actions', () => {
     it('Should generate search text action',() => {
@@ -27,7 +30,7 @@ describe('Actions', () => {
         var res = actions.toggleShowCompleted()
         expect(res).toEqual(action)
     })
-    it('Should add todos',() => {
+    it('Should generate add todo action',() => {
         var action = {
             type: 'ADD_TODO',
             todo: {
@@ -39,6 +42,22 @@ describe('Actions', () => {
         }
         var res = actions.addTodo(action.todo)
         expect(res).toEqual(action)
+    })
+    it('should create todo and dispatch ADD_TODO', (done) => {
+        const store = createMockStore({})
+        const todoText = 'test'
+
+        store.dispatch(actions.startAddTodo(todoText)).then(() => {
+            const actions = store.getActions()
+            expect(actions[0]).toInclude({
+                type: 'ADD_TODO'
+            })
+            expect(actions[0].todo).toInclude({
+                text: todoText
+            })
+            done()
+        }).catch(done)
+
     })
     it('should generate add todos action object', () => {
         var todos = [{
@@ -55,12 +74,13 @@ describe('Actions', () => {
         var res = actions.addTodos(todos)
         expect(res).toEqual(action)
     })
-    it('Should toggle todo completed', () => {
+    it('Should generate update todo action', () => {
         var action = {
-            type: 'TOGGLE_TODO',
-            id: 0
+            type: 'UPDATE_TODO',
+            id: 0,
+            updates: {completed: false}
         }
-        var res = actions.toggleTodo(action.id)
+        var res = actions.updateTodo(action.id, action.updates)
         expect(res).toEqual(action)
     })
 })

@@ -4,10 +4,13 @@
 * @Email:  me@andreeray.se
 * @Filename: reducers.test.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-28T14:40:50+02:00
+ * @Last modified time: 2017-04-10T11:49:55+02:00
 */
 
-var expect = require('expect'), reducers = require('reducers'), deepfreeze = require('deep-freeze-strict')
+var
+    expect      = require('expect'),
+    reducers    = require('reducers'),
+    df  = require('deep-freeze-strict')
 
 describe('reducers', () => {
     describe('searchStringReducer', () => {
@@ -16,7 +19,7 @@ describe('reducers', () => {
                 type: 'SET_SEARCH_STRING',
                 searchString: 'test'
             }
-            var res = reducers.searchStringReducer(deepfreeze(''),deepfreeze(action))
+            var res = reducers.searchStringReducer(df(''),df(action))
             expect(res).toEqual(action.searchString)
         })
     })
@@ -25,7 +28,7 @@ describe('reducers', () => {
             var action = {
                 type: 'TOGGLE_SHOW_COMPLETED'
             }
-            var res = reducers.showCompletedReducer(deepfreeze(false),deepfreeze(action))
+            var res = reducers.showCompletedReducer(df(false),df(action))
             expect(res).toEqual(true)
         })
     })
@@ -40,11 +43,11 @@ describe('reducers', () => {
                     completedAt: 1234
                 }
             }
-            var res = reducers.todosReducer(deepfreeze([]),deepfreeze(action))
+            var res = reducers.todosReducer(df([]),df(action))
             expect(res.length).toEqual(1)
             expect(res[0]).toEqual(action.todo)
         })
-        it('should toggle todo', () => {
+        it('should update todo', () => {
             var todos = [{
                 id: '123',
                 text: 'test',
@@ -52,13 +55,19 @@ describe('reducers', () => {
                 createdAt: 123,
                 completedAt: 125
             }]
-            var action = {
-                type: 'TOGGLE_TODO',
-                id: '123'
+            var updates = {
+                completed: false,
+                completedAt: null
             }
-            var res = reducers.todosReducer(deepfreeze(todos),deepfreeze(action))
-            expect(res[0].completed).toEqual(false)
-            expect(res[0].completedAt).toEqual(undefined)
+            var action = {
+                type: 'UPDATE_TODO',
+                id: todos[0].id,
+                updates
+            }
+            var res = reducers.todosReducer(df(todos),df(action))
+            expect(res[0].completed).toEqual(updates.completed)
+            expect(res[0].completedAt).toEqual(updates.completedAt)
+            expect(res[0].text).toEqual(todos[0].text)
         })
         it('should add existing todos', () => {
             var todos = [{
@@ -72,7 +81,7 @@ describe('reducers', () => {
                 type: 'ADD_TODOS',
                 todos
             }
-            var res = reducers.todosReducer(deepfreeze([]), deepfreeze(action))
+            var res = reducers.todosReducer(df([]), df(action))
             expect(res[0]).toEqual(todos[0])
             expect(res.length).toEqual(1)
         })

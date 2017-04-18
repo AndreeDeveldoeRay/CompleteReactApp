@@ -4,7 +4,7 @@
  * @Email:  me@andreeray.se
  * @Filename: firebase.js
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-28T12:12:01+02:00
+ * @Last modified time: 2017-04-05T16:15:55+02:00
  */
 
 import firebase from 'firebase'
@@ -18,11 +18,9 @@ try {
         messagingSenderId: "709004678056"
     }
     firebase.initializeApp(config)
-} catch (e) {
-
+} catch (error) {
+    console.log("Firebase authentication error",error)
 }
-
-
 
 export var firebaseRef = firebase.database().ref()
 export default firebase

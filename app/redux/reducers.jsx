@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: reducers.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-28T12:36:25+02:00
+ * @Last modified time: 2017-04-06T13:58:35+02:00
 */
 
 var uuid = require('node-uuid'), moment = require('moment')
@@ -27,7 +27,9 @@ export var showCompletedReducer = (state = false, action) => {
     }
 }
 export var todosReducer = (state = [], action) => {
-    switch (action.type) {
+
+    switch (action.type)
+    {
         case 'ADD_TODO':
             return [
                 ...state,
@@ -38,14 +40,12 @@ export var todosReducer = (state = [], action) => {
                 ...state,
                 ...action.todos
             ]
-        case 'TOGGLE_TODO':
+        case 'UPDATE_TODO':
             return state.map((todo) => {
                 if (todo.id === action.id) {
-                    var nextCompleted = !todo.completed
                     return {
                         ...todo,
-                        completed: nextCompleted,
-                        completedAt: nextCompleted ? moment().unix() : undefined
+                        ...action.updates
                     }
                 } else {
                     return todo
