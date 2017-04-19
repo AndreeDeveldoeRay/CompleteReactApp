@@ -3,8 +3,8 @@
 * @Date:   2017-03-01T01:59:52+01:00
 * @Email:  me@andreeray.se
 * @Filename: search.test.jsx
-* @Last modified by:   develdoe
-* @Last modified time: 2017-03-10T02:49:01+01:00
+ * @Last modified by:   develdoe
+ * @Last modified time: 2017-04-19T14:49:31+02:00
 */
 
 
@@ -12,13 +12,13 @@
 var React = require('react'), ReactDOM = require('react-dom'), TestUtils = require('react-addons-test-utils'), Expect = require('expect')
 import {Search} from 'Search'
 
-describe('Search', () =>
+describe('Search ==========', () =>
 {
-    it('exists', () =>
+    it('EXIST', () =>
     {
         Expect(Search).toExist()
     })
-    it('should dispatch SET_SEARCH_STRING on input change', () =>
+    it('Should: dispatch SET_SEARCH_STRING on input change', () =>
     {
         var text = "test"
         var action = {
@@ -31,7 +31,7 @@ describe('Search', () =>
         TestUtils.Simulate.change(search.refs.searchString)
         Expect(spy).toHaveBeenCalledWith(action)
     })
-    it('should dispatch TOGGLE_SHOW_COMPLETED when checkbox checked', () =>
+    it('Should: dispatch TOGGLE_SHOW_COMPLETED when checkbox checked', () =>
     {
         var action = {
             type: 'TOGGLE_SHOW_COMPLETED'

@@ -4,23 +4,11 @@
 * @Email:  me@andreeray.se
 * @Filename: TodoAPI.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-19T19:37:15+01:00
+ * @Last modified time: 2017-04-19T12:55:25+02:00
 */
 
 
 module.exports = {
-    setTodos: function (todos) {
-        if (Array.isArray(todos)) {
-            localStorage.setItem('todos',JSON.stringify(todos))
-            return todos
-        }
-    },
-    getTodos: function () {
-        var stringTodos = localStorage.getItem('todos')
-        var todos = []
-        try { todos = JSON.parse(stringTodos) } catch (e) {}
-        return Array.isArray(todos) ? todos : []
-    },
     filterTodos: function (todos, showCompleted, search) {
 
         var filteredTodos = todos.filter((todo) => {

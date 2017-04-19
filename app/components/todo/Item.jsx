@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Item.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-04-18T13:41:32+02:00
+ * @Last modified time: 2017-04-19T14:06:48+02:00
 */
 
 
@@ -36,7 +36,7 @@ export var Item = React.createClass({
         }
         return (
             <div className={todoClassName} onClick={ () => { dispatch(actions.startToggleTodo(id, !completed)) }}>
-                <input type="checkbox" checked={completed} />
+                <input type="checkbox" checked={completed} onChange={()=>{}} />
                 <p>{text}</p>
                 <p>{renderDate()}</p>
             </div>

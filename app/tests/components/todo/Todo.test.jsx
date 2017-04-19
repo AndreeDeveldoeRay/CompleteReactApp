@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Root.test.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-04-05T20:29:06+02:00
+ * @Last modified time: 2017-04-19T14:49:35+02:00
 */
 
 var React = require('react'),
@@ -17,11 +17,11 @@ var React = require('react'),
 
 import List from 'List'
 
-describe('Todo', () => {
-    it('exists', () => {
+describe('Todo ==========', () => {
+    it('EXIST', () => {
         Expect(Todo).toExist()
     })
-    it('should render list', () => {
+    it('Should: render list', () => {
         var store = Store.configureStore()
         var provider = TestUtils.renderIntoDocument(
             <Provider store={store}>

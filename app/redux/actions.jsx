@@ -4,7 +4,7 @@
  * @Email:  me@andreeray.se
  * @Filename: actions.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-04-18T15:36:52+02:00
+ * @Last modified time: 2017-04-19T13:32:09+02:00
  *
  * @Description:
  *   Instead of returning objects we return functions to be able to work
@@ -58,6 +58,27 @@ export var addTodos = (todos) => {
     return {
         type: 'ADD_TODOS',
         todos
+    }
+}
+export var startAddTodos = () => {
+    return (dispatch, getState) => {
+        var
+            todosRef = firebaseRef.child('todos')
+
+        return todosRef.once('value').then((snapshot) => {
+            var
+                todos   = snapshot.val() || {},
+                parsed  = []
+
+            Object.keys(todos).forEach((id) => {
+                parsed.push({
+                    id,
+                    ...todos[id]
+                })
+            })
+
+            dispatch(addTodos(parsed))
+        })
     }
 }
 export var updateTodo = (id, updates) => {

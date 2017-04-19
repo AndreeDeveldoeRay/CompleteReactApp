@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: List.test.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-04-05T20:28:30+02:00
+ * @Last modified time: 2017-04-19T14:49:28+02:00
 */
 
 
@@ -19,13 +19,13 @@ import {configureStore} from 'store'
 import ConnectedList, {List} from 'List'
 import ConnectedItem, {Item} from 'Item'
 
-describe('List', () =>
+describe('List ==========', () =>
 {
-    it('exists', () =>
+    it('EXIST', () =>
     {
         Expect(List).toExist()
     })
-    it('should render one Item component for each items', () =>
+    it('Should: render one Item component for each items', () =>
     {
         var todos = [{
             id:1,
@@ -52,7 +52,7 @@ describe('List', () =>
         var listComponents = TestUtils.scryRenderedComponentsWithType(list, ConnectedItem)
         Expect(listComponents.length).toBe(todos.length)
     })
-    it('should render empty message if no todos', () =>
+    it('Should: render empty message if no todos', () =>
     {
         var todos = []
         var list = TestUtils.renderIntoDocument(<List todos={todos}/>)

@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: List.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-04-18T13:42:43+02:00
+ * @Last modified time: 2017-04-19T14:57:37+02:00
 */
 
 
@@ -22,14 +22,12 @@ export var List = React.createClass({
         {todos, showCompleted, searchString} = this.props,
 
         renderItems = () => {
+            var
+                filtered = TodoAPI.filterTodos(todos, showCompleted, searchString)
 
-            if (todos.length === 0) return <p className="contain__message">Nothing to do</p>
+            if (filtered.length === 0) return <p className="contain__message">Nothing to do</p>
 
-            return TodoAPI.filterTodos(todos, showCompleted, searchString).map((item) => {
-                return (
-                    <Item key={item.id} {...item} />
-                )
-            })
+            return filtered.map((item) => { return <Item key={item.id} {...item} /> })
         }
         return (
         <div>

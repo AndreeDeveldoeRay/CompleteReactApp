@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: entry.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-04-05T20:24:57+02:00
+ * @Last modified time: 2017-04-19T12:33:49+02:00
 */
 
 import React, {component} from 'react'
@@ -15,13 +15,8 @@ var actions = require('actions')
 var store = require('store').configureStore()
 var TodoAPI = require('TodoAPI')
 
-store.subscribe(() => {
-  var state = store.getState()
-  TodoAPI.setTodos(state.todos)
-})
 
-var initialTodos = TodoAPI.getTodos()
-store.dispatch(actions.addTodos(initialTodos))
+store.dispatch(actions.startAddTodos())
 
 // Load foundation
 require('style!css!foundation-sites/dist/css/foundation.min.css')

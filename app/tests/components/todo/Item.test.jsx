@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Item.test.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-04-18T13:58:11+02:00
+ * @Last modified time: 2017-04-19T14:49:25+02:00
 */
 
 
@@ -18,11 +18,11 @@ var React = require('react'),
 import * as actions from 'actions'
 import {Item} from 'Item'
 
-describe('Item', () => {
+describe('Item ===========', () => {
 
-    it('exists', () => { Expect(Item).toExist() })
+    it('EXIST', () => { Expect(Item).toExist() })
 
-    it('should dispatch TOGGLE_TODO action on click', () => {
+    it('Should: dispatch TOGGLE_TODO action on click', () => {
 
         var data = {
             id:1099,

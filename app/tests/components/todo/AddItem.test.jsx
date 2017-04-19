@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: AddItem.test.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-28T14:43:24+02:00
+ * @Last modified time: 2017-04-19T14:49:23+02:00
 */
 
 
@@ -19,13 +19,13 @@ var {AddItem} = require('AddItem')
 
 import * as actions from 'actions'
 
-describe('AddItem', () =>
+describe('AddItem ==========', () =>
 {
-    it('exists', () =>
+    it('EXIST', () =>
     {
         Expect(AddItem).toExist()
     })
-    it('should dispatch ADD_TODO when valid todo text', () =>
+    it('Should: dispatch ADD_TODO when valid todo text', () =>
     {
         var todoText = 'text'
         var action = actions.startAddTodo(todoText)
@@ -36,7 +36,7 @@ describe('AddItem', () =>
         TestUtils.Simulate.submit($el.find('form')[0])
         Expect(spy).toHaveBeenCalledWith(action)
     })
-    it('should not dispatch ADD_TODO when invalid todo text', () =>
+    it('Should: not dispatch ADD_TODO when invalid todo text', () =>
     {
         var todoText = ''
         var spy = Expect.createSpy()
