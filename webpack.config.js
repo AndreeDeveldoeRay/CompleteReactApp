@@ -4,12 +4,18 @@
 * @Email:  me@andreeray.se
 * @Filename: webpack.config.js
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-28T12:23:58+02:00
+ * @Last modified time: 2017-04-26T09:44:35+02:00
 */
 
 
 
 var webpack = require('webpack')
+
+/**
+ * To optimize for production run: NODE_ENV=production webpack -p
+ */
+process.env.NODE_ENV = process.env.NODE_ENV || 'development'
+
 
 module.exports = {
     entry: [
@@ -24,6 +30,11 @@ module.exports = {
         new webpack.ProvidePlugin({
             '$': 'jquery',
             'jQuery': 'jquery'
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compressor: {
+                warnings: false
+            }
         })
     ],
     output: {
@@ -58,5 +69,5 @@ module.exports = {
             }
         ]
     },
-    devtool: 'cheep-module-eval-source-map'
+    devtool:  process.env.NODE_ENV === 'production' ? undefined :   'cheep-module-eval-source-map'
 }

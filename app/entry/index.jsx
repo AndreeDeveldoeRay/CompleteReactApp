@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: entry.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-04-19T12:33:49+02:00
+ * @Last modified time: 2017-04-20T00:49:31+02:00
 */
 
 import React, {component} from 'react'
@@ -25,9 +25,4 @@ $(document).foundation()
 //app css
 require('style!css!sass!styles')
 
-ReactDOM.render(
-    <Provider store={store}>
-        <Todo/>
-    </Provider>,
-    document.getElementById('app')
-)
+ReactDOM.render(<Provider store={store}><Todo/></Provider>,document.getElementById('app'))

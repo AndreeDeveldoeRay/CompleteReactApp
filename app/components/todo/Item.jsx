@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Item.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-04-19T14:06:48+02:00
+ * @Last modified time: 2017-04-20T00:43:01+02:00
 */
 
 
@@ -18,7 +18,7 @@ export var Item = React.createClass({
     {
         var
 
-        {id,text,completed,createdAt,completedAt, dispatch} = this.props,
+        {id, text, completed, createdAt, completedAt, dispatch} = this.props,
         todoClassName = completed ? 'todo todo-completed' : 'todo',
 
         renderDate = () => {

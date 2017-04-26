@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: List.test.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-04-19T14:49:28+02:00
+ * @Last modified time: 2017-04-20T00:16:15+02:00
 */
 
 
@@ -25,7 +25,7 @@ describe('List ==========', () =>
     {
         Expect(List).toExist()
     })
-    it('Should: render one Item component for each items', () =>
+    it('Should: render a Item component for each items', () =>
     {
         var todos = [{
             id:1,
@@ -43,11 +43,7 @@ describe('List ==========', () =>
         var st = configureStore({
             todos
         })
-        var provider = TestUtils.renderIntoDocument(
-            <Provider store={st}>
-                <ConnectedList/>
-            </Provider>
-        )
+        var provider = TestUtils.renderIntoDocument(<Provider store={st}><ConnectedList/></Provider>)
         var list = TestUtils.scryRenderedComponentsWithType(provider, ConnectedList)[0]
         var listComponents = TestUtils.scryRenderedComponentsWithType(list, ConnectedItem)
         Expect(listComponents.length).toBe(todos.length)
