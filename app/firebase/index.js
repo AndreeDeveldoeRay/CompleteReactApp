@@ -4,18 +4,18 @@
  * @Email:  me@andreeray.se
  * @Filename: firebase.js
  * @Last modified by:   develdoe
- * @Last modified time: 2017-04-05T16:15:55+02:00
+ * @Last modified time: 2017-04-26T10:43:01+02:00
  */
 
 import firebase from 'firebase'
 
 try {
     var config = {
-        apiKey: "AIzaSyCQKt4ZnF72d8N4u53zgiC8OKNvUAvuoLQ",
-        authDomain: "tests-492e3.firebaseapp.com",
-        databaseURL: "https://tests-492e3.firebaseio.com",
-        storageBucket: "tests-492e3.appspot.com",
-        messagingSenderId: "709004678056"
+        apiKey: process.env.API_KEY,
+        authDomain: process.env.AUTH_DOMAIN,
+        databaseURL: process.env.DATABASE_URL,
+        storageBucket: process.env.STORAGE_BUCKET,
+        messagingSenderId: process.env.MESSAGING_SENDER_ID
     }
     firebase.initializeApp(config)
 } catch (error) {
