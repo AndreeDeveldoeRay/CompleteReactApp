@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: webpack.config.js
  * @Last modified by:   develdoe
- * @Last modified time: 2017-04-26T11:17:43+02:00
+ * @Last modified time: 2017-05-15T14:33:29+02:00
 */
 
 
@@ -20,9 +20,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 
 try {
     envFile(path.join(__dirname, 'config/' + process.env.NODE_ENV + '.env'))
-} catch (e) {
-    console.log("error")
-}
+} catch (e) { }
 
 
 module.exports = {
@@ -67,6 +65,8 @@ module.exports = {
         ],
         alias: {
             app: 'app',
+            router: 'app/entry/router',
+            login: 'app/components/login',
             styles: 'app/styles/app',
             TodoAPI: 'app/api/TodoAPI',
             actions: 'app/redux/actions',
