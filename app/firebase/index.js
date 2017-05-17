@@ -22,5 +22,6 @@ try {
     console.log("Firebase authentication error",error)
 }
 
+export var githubProvider = new firebase.auth.GithubAuthProvider()
 export var firebaseRef = firebase.database().ref()
 export default firebase

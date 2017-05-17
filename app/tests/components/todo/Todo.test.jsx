@@ -12,10 +12,10 @@ var React = require('react'),
     {Provider} = require('react-redux'),
     TestUtils = require('react-addons-test-utils'),
     Expect = require('expect'),
-    Store = require('store'),
-    Todo = require('Todo')
+    Store = require('store')
 
 import List from 'List'
+import Todo from 'todo'
 
 describe('Todo ==========', () => {
     it('EXIST', () => {

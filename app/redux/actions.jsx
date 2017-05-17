@@ -12,7 +12,9 @@
 */
 
 import moment from 'moment'
-import firebase, {firebaseRef} from 'app/firebase'
+import firebase, {firebaseRef, githubProvider} from 'app/firebase'
+
+
 
 export var setSearchString = (searchString) => {
     return {
@@ -104,6 +106,24 @@ export var startToggleTodo = (id, completed) => {
             })
         }, (error) => {
             console.log('error',error)
+        })
+    }
+}
+
+export var startLogin = () => {
+    return (dispatch, getState) => {
+        return firebase.auth().signInWithPopup(githubProvider).then((result) => {
+            console.log("authenticated", result)
+        }, (error) => {
+            console.log("unable to authenticate", error)
+        })
+    }
+}
+
+export var startLogout = () => {
+    return (dispatch, getState) => {
+        return firebase.auth().signOut().then(() => {
+            console.log("logged out")
         })
     }
 }

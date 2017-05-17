@@ -12,7 +12,7 @@
 import React from 'react'
 
 
-var Router = React.createClass({
+export var Router = React.createClass({
     render() {
         return (
             <div>
@@ -21,4 +21,4 @@ var Router = React.createClass({
         )
     }
 })
-module.exports = Router
+export default Router

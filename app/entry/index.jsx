@@ -10,13 +10,17 @@
 import React, {component} from 'react'
 import ReactDOM from 'react-dom'
 var {Provider} = require('react-redux')
-var actions = require('actions')
-var store = require('store').configureStore()
-var TodoAPI = require('TodoAPI')
 var {Router, Route, IndexRoute, hashHistory} = require('react-router')
+
+var store = require('store').configureStore()
+var actions = require('actions')
+
+var TodoAPI = require('TodoAPI')
+
 import router from 'router'
-import Todo from 'todo'
 import Login from 'login'
+import Todo from 'todo'
+
 
 store.dispatch(actions.startAddTodos())
 

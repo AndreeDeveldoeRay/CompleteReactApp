@@ -7,20 +7,27 @@
 * @Last modified time: 2017-03-10T03:08:57+01:00
 */
 
-var React = require('react'),
-    uuid = require('node-uuid'),
-    moment = require('moment')
+import React from 'react'
+import * as Redux from 'react-redux'
 
 import List from 'List'
 import AddItem from 'AddItem'
 import Search from 'Search'
+import * as actions from 'actions'
 
-var Todo = React.createClass({
-    render: function ()
-    {
+export var Todo = React.createClass({
+
+    onLogout(e) {
+        var {dispatch} = this.props
+        e.preventDefault()
+        dispatch(actions.startLogout())
+    },
+
+    render () {
         return (<div>
             <div className="row">
                 <div className="column small-centered small-11 medium-6 large-5">
+                    <a href="#" onClick={this.onLogout}>logout</a>
                     <h1 className="page-title">Todo App</h1>
                     <Search/>
                     <List/>
@@ -30,4 +37,4 @@ var Todo = React.createClass({
         </div>)
     }
 })
-module.exports = Todo
+export default Redux.connect()(Todo)
