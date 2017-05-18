@@ -3,41 +3,65 @@
 * @Date:   2017-02-28T00:22:35+01:00
 * @Email:  me@andreeray.se
 * @Filename: entry.jsx
- * @Last modified by:   develdoe
- * @Last modified time: 2017-05-15T14:31:31+02:00
+ * @Last modified by:   DevelDoe
+ * @Last modified time: 2017-05-18T19:55:18+02:00
 */
 
-import React, {component} from 'react'
-import ReactDOM from 'react-dom'
-var {Provider} = require('react-redux')
-var {Router, Route, IndexRoute, hashHistory} = require('react-router')
+// ===========================================================
+// IMPORTS ===================================================
 
-var store = require('store').configureStore()
-var actions = require('actions')
+import React, {component}   from 'react'
+import ReactDOM             from 'react-dom'
+import {Provider}           from 'react-redux'
+import {hashHistory}        from 'react-router'
 
-var TodoAPI = require('TodoAPI')
+var store                   = require('store').configureStore()
+var actions                 = require('actions')
 
-import router from 'router'
-import Login from 'login'
-import Todo from 'todo'
+import router               from 'app/router'
+import firebase             from 'app/firebase'
 
+// ===========================================================
+
+//------------------------------------------------------------
+// Firebase authentication -----------------------------------
+
+firebase.auth().onAuthStateChanged((user) => {
+    if (user)   hashHistory.push('/todo')
+    else        hashHistory.push('/')
+})
+
+//------------------------------------------------------------
+
+//------------------------------------------------------------
+// Redux -----------------------------------------------------
 
 store.dispatch(actions.startAddTodos())
 
-// Load foundation
+//------------------------------------------------------------
+
+//------------------------------------------------------------
+// Foundation ------------------------------------------------
+
 require('style!css!foundation-sites/dist/css/foundation.min.css')
 $(document).foundation()
 
-//app css
+//------------------------------------------------------------
+
+//------------------------------------------------------------
+// Syling ----------------------------------------------------
+
 require('style!css!sass!styles')
+
+//------------------------------------------------------------
+
+//============================================================
+// Render ====================================================
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={hashHistory}>
-            <Route path='/' component={router}>
-                <IndexRoute component={Login}/>
-                <Route path="/todo" component={Todo}/>
-            </Route>
-        </Router>
+        {router}
     </Provider>,document.getElementById('app')
 )
+
+//============================================================

@@ -10,9 +10,9 @@
 
 
 var React = require('react'),
-    {connect} = require('react-redux'),
-    TodoAPI = require('TodoAPI')
+    {connect} = require('react-redux')
 
+import Api from 'api'
 import Item from 'Item'
 
 export var List = React.createClass({
@@ -23,7 +23,7 @@ export var List = React.createClass({
 
         renderItems = () => {
             var
-                filtered = TodoAPI.filterTodos(todos, showCompleted, searchString)
+                filtered = Api.filterTodos(todos, showCompleted, searchString)
 
             if (filtered.length === 0) return <p className="contain__message">Nothing to do</p>
 

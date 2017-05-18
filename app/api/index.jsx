@@ -8,7 +8,7 @@
 */
 
 
-module.exports = {
+export default {
     filterTodos: function (todos, showCompleted, search) {
 
         var filteredTodos = todos.filter((todo) => {

@@ -3,8 +3,8 @@
 * @Date:   2017-02-20T13:54:23+01:00
 * @Email:  me@andreeray.se
 * @Filename: webpack.config.js
- * @Last modified by:   develdoe
- * @Last modified time: 2017-05-15T14:33:29+02:00
+ * @Last modified by:   DevelDoe
+ * @Last modified time: 2017-05-18T15:03:29+02:00
 */
 
 
@@ -65,10 +65,10 @@ module.exports = {
         ],
         alias: {
             app: 'app',
-            router: 'app/entry/router',
+            routing: 'app/router/routing',
             login: 'app/components/login',
             styles: 'app/styles/app',
-            TodoAPI: 'app/api/TodoAPI',
+            api: 'app/api/index',
             actions: 'app/redux/actions',
             reducers: 'app/redux/reducers',
             store: 'app/redux/store'
