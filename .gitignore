@@ -44,6 +44,8 @@ node_modules
 ######################
 public/bundle.js
 
-# Config #
+# Configurations #
 ######################
-config/
+test.env
+development.env
+production.env

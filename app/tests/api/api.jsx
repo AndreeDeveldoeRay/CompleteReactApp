@@ -3,17 +3,17 @@
 * @Date:   2017-03-02T10:33:23+01:00
 * @Email:  me@andreeray.se
 * @Filename: TodoAPI.test.jsx
- * @Last modified by:   develdoe
- * @Last modified time: 2017-04-19T14:49:08+02:00
+ * @Last modified by:   andreeray
+ * @Last modified time: 2017-06-02T12:54:45+02:00
 */
 
 
-var Expect = require('expect'), TodoAPI = require('TodoAPI')
+var Expect = require('expect'), api = require('api')
 
 describe('TodoAPI ==========', () =>
 {
     beforeEach(()=> { localStorage.removeItem('todos') })
-    it('EXIST', () => { Expect(TodoAPI).toExist() })
+    it('EXIST', () => { Expect(api).toExist() })
 
     describe('filteredTodos ----------', () =>
     {
@@ -36,27 +36,27 @@ describe('TodoAPI ==========', () =>
         ]
         it('Should: return all items if showCompleted is true', () =>
         {
-            var filteredTodos = TodoAPI.filterTodos(todos,true,'')
+            var filteredTodos = api.filterTodos(todos,true,'')
             Expect(filteredTodos.length).toBe(3)
         })
         it('Should: return all uncompleted items if showCompleted is false', () =>
         {
-            var filteredTodos = TodoAPI.filterTodos(todos,false,'')
+            var filteredTodos = api.filterTodos(todos,false,'')
             Expect(filteredTodos.length).toBe(1)
         })
         it('Should: sort by completed status', () =>
         {
-            var filteredTodos = TodoAPI.filterTodos(todos,true,'')
+            var filteredTodos = api.filterTodos(todos,true,'')
             Expect(filteredTodos[0].completed).toBe(false)
         })
         it('Should: filter todos by search', () =>
         {
-            var filteredTodos = TodoAPI.filterTodos(todos,true,'Some')
+            var filteredTodos = api.filterTodos(todos,true,'Some')
             Expect(filteredTodos.length).toBe(1)
         })
         it('Should: return all todos if search is empty', () =>
         {
-            var filteredTodos = TodoAPI.filterTodos(todos,true,'')
+            var filteredTodos = api.filterTodos(todos,true,'')
             Expect(filteredTodos.length).toBe(3)
         })
     })

@@ -3,8 +3,8 @@
 * @Date:   2017-02-20T13:54:23+01:00
 * @Email:  me@andreeray.se
 * @Filename: webpack.config.js
- * @Last modified by:   DevelDoe
- * @Last modified time: 2017-05-18T15:03:29+02:00
+ * @Last modified by:   andreeray
+ * @Last modified time: 2017-06-01T20:41:29+02:00
 */
 
 
@@ -20,8 +20,18 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 
 try {
     envFile(path.join(__dirname, 'config/' + process.env.NODE_ENV + '.env'))
-} catch (e) { }
+} catch (e) {
+    console.log("enfFile error:",e)
+}
 
+console.log("========== ENVIRONMENT CONFIGURATION =================")
+console.log("Environment:",process.env.NODE_ENV)
+console.log("API_KEY:",process.env.API_KEY)
+console.log("AUTH_DOMAIN:",process.env.AUTH_DOMAIN)
+console.log("DATABASE_URL:",process.env.DATABASE_URL)
+console.log("STORAGE_BUCKET:",process.env.STORAGE_BUCKET)
+console.log("MESSAGING_SENDER_ID:",process.env.MESSAGING_SENDER_ID)
+console.log("======================================================")
 
 module.exports = {
     entry: [

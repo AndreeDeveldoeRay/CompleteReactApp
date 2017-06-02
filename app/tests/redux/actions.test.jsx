@@ -3,8 +3,8 @@
 * @Date:   2017-03-06T18:34:54+01:00
 * @Email:  me@andreeray.se
 * @Filename: actions.test.jsx
- * @Last modified by:   develdoe
- * @Last modified time: 2017-04-19T14:51:46+02:00
+ * @Last modified by:   andreeray
+ * @Last modified time: 2017-06-02T13:02:35+02:00
 */
 
 import configureMockStore from 'redux-mock-store'
@@ -87,7 +87,20 @@ describe('Actions ==========', () => {
         var res = actions.updateTodo(action.id, action.updates)
         expect(res).toEqual(action)
     })
-    describe('Tests with firebase ----------', () => {
+    it('Should: generate login action object', () => {
+        const action = {
+            type: 'LOGIN',
+            uid: '123abc'
+        }
+        const res = actions.login(action.uid)
+        expect(res).toEqual(action)
+    })
+    it('Should: generate logout action object', () => {
+        const action = {type: 'LOGOUT'}
+        const res = actions.logout()
+        expect(res).toEqual(action)
+    })
+    describe('Asyncronous tests on firebase ----------', () => {
         var testTodoRef;
 
         beforeEach((done) => {
@@ -146,5 +159,6 @@ describe('Actions ==========', () => {
                 done()
             }, done)
         })
+
     })
 })

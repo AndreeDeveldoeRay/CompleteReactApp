@@ -3,8 +3,8 @@
  * @Date:   2017-05-15T14:01:48+02:00
  * @Email:  me@andreeray.se
  * @Filename: index.jsx
- * @Last modified by:   DevelDoe
- * @Last modified time: 2017-05-18T19:52:48+02:00
+ * @Last modified by:   andreeray
+ * @Last modified time: 2017-06-01T13:18:25+02:00
  */
 
 import React from 'react'

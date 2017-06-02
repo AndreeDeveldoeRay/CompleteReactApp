@@ -3,8 +3,8 @@
 * @Date:   2017-03-07T02:28:01+01:00
 * @Email:  me@andreeray.se
 * @Filename: reducers.test.jsx
- * @Last modified by:   develdoe
- * @Last modified time: 2017-04-19T14:53:39+02:00
+ * @Last modified by:   andreeray
+ * @Last modified time: 2017-06-02T13:25:26+02:00
 */
 
 var
@@ -87,6 +87,24 @@ describe('Reducers ==========', () => {
             var res = reducers.todosReducer(df([]), df(action))
             expect(res[0]).toEqual(todos[0])
             expect(res.length).toEqual(1)
+        })
+    })
+    describe('Auth ----------', () => {
+        it('Should: store uid on LOGIN', () => {
+            const action = {
+                type: 'LOGIN',
+                uid: '123abc'
+            }
+            const res = reducers.authReducer(undefined, df(action))
+            expect(res).toEqual({
+                uid: action.uid
+            })
+        })
+        it('Should: wipe of on LOGOUT', () => {
+            const authData = { uid: '123abc' }
+            const action = { type: 'LOGOUT' }
+            const res = reducers.authReducer(df(authData), df(action))
+            expect(res).toEqual({})
         })
     })
 })

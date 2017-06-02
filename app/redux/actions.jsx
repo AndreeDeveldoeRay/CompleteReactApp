@@ -3,8 +3,8 @@
  * @Date:   2017-03-06T18:34:34+01:00
  * @Email:  me@andreeray.se
  * @Filename: actions.jsx
- * @Last modified by:   develdoe
- * @Last modified time: 2017-04-19T13:32:09+02:00
+ * @Last modified by:   andreeray
+ * @Last modified time: 2017-06-02T13:10:57+02:00
  *
  * @Description:
  *   Instead of returning objects we return functions to be able to work
@@ -35,7 +35,7 @@ export var addTodo = (todo) => {
 }
 export var startAddTodo = (text) => {
     return (dispatch, getState) => {
-
+        
         // normaly you would use node-uuid to create an id, but firebase takes care of it
         // normaly you would set completed att to undefined, but firebase takes a null value
         var todo = {
@@ -120,10 +120,24 @@ export var startLogin = () => {
     }
 }
 
+export var login = (uid) => {
+    return {
+        type: 'LOGIN',
+        uid
+    }
+}
+
 export var startLogout = () => {
     return (dispatch, getState) => {
         return firebase.auth().signOut().then(() => {
             console.log("logged out")
         })
+    }
+}
+
+
+export var logout = () => {
+    return {
+        type: 'LOGOUT'
     }
 }
