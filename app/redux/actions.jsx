@@ -4,7 +4,7 @@
  * @Email:  me@andreeray.se
  * @Filename: actions.jsx
  * @Last modified by:   andreeray
- * @Last modified time: 2017-06-02T13:10:57+02:00
+ * @Last modified time: 2017-07-31T16:03:54+02:00
  *
  * @Description:
  *   Instead of returning objects we return functions to be able to work
@@ -35,7 +35,7 @@ export var addTodo = (todo) => {
 }
 export var startAddTodo = (text) => {
     return (dispatch, getState) => {
-        
+
         // normaly you would use node-uuid to create an id, but firebase takes care of it
         // normaly you would set completed att to undefined, but firebase takes a null value
         var todo = {
@@ -45,7 +45,8 @@ export var startAddTodo = (text) => {
             completedAt: null
         }
 
-        var todoRef = firebaseRef.child('todos').push(todo)
+        var uid = getState().auth.uid
+        var todoRef = firebaseRef.child(`users/${uid}/todos`).push(todo)
 
         return todoRef.then(() => {
             dispatch(addTodo({
@@ -65,7 +66,8 @@ export var addTodos = (todos) => {
 export var startAddTodos = () => {
     return (dispatch, getState) => {
         var
-            todosRef = firebaseRef.child('todos')
+            uid = getState().auth.uid,
+            todosRef = firebaseRef.child(`users/${uid}/todos`)
 
         return todosRef.once('value').then((snapshot) => {
             var
@@ -92,7 +94,8 @@ export var updateTodo = (id, updates) => {
 }
 export var startToggleTodo = (id, completed) => {
     return (dispatch, getState) => {
-        var todoRef = firebaseRef.child(`todos/${id}`)
+        var uid = getState().auth.uid
+        var todoRef = firebaseRef.child(`users/${uid}/todos/${id}`)
         var updates = {
             completed,
             completedAt: completed ? moment().unix() : null

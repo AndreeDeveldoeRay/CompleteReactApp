@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: entry.jsx
  * @Last modified by:   andreeray
- * @Last modified time: 2017-06-02T12:48:29+02:00
+ * @Last modified time: 2017-07-31T16:02:35+02:00
 */
 
 // IMPORTS ===================================================
@@ -26,6 +26,7 @@ import firebase             from 'app/firebase'
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         store.dispatch(actions.login(user.uid))
+        store.dispatch(actions.startAddTodos())
         hashHistory.push('/todo')
     }
     else {
@@ -33,11 +34,6 @@ firebase.auth().onAuthStateChanged((user) => {
         hashHistory.push('/')
     }
 })
-
-
-// Redux -----------------------------------------------------
-
-store.dispatch(actions.startAddTodos())
 
 
 // Foundation ------------------------------------------------
