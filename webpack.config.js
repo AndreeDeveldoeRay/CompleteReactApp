@@ -31,6 +31,7 @@ console.log("AUTH_DOMAIN:",process.env.AUTH_DOMAIN)
 console.log("DATABASE_URL:",process.env.DATABASE_URL)
 console.log("STORAGE_BUCKET:",process.env.STORAGE_BUCKET)
 console.log("MESSAGING_SENDER_ID:",process.env.MESSAGING_SENDER_ID)
+console.log("GITHUB_ACCESS_TOKEN:",process.env.GITHUB_ACCESS_TOKEN)
 console.log("======================================================")
 
 module.exports = {
@@ -59,7 +60,8 @@ module.exports = {
                 AUTH_DOMAIN: JSON.stringify(process.env.AUTH_DOMAIN),
                 DATABASE_URL: JSON.stringify(process.env.DATABASE_URL),
                 STORAGE_BUCKET: JSON.stringify(process.env.STORAGE_BUCKET),
-                MESSAGING_SENDER_ID: JSON.stringify(process.env.MESSAGING_SENDER_ID)
+                MESSAGING_SENDER_ID: JSON.stringify(process.env.MESSAGING_SENDER_ID),
+                GITHUB_ACCESS_TOKEN: JSON.stringify(process.env.GITHUB_ACCESS_TOKEN)
             }
         })
     ],

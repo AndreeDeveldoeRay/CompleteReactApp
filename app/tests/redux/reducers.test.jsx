@@ -93,11 +93,12 @@ describe('Reducers ==========', () => {
         it('Should: store uid on LOGIN', () => {
             const action = {
                 type: 'LOGIN',
-                uid: '123abc'
+                uid: '123abc',
             }
             const res = reducers.authReducer(undefined, df(action))
             expect(res).toEqual({
-                uid: action.uid
+                uid: action.uid,
+                displayName: undefined
             })
         })
         it('Should: wipe of on LOGOUT', () => {
