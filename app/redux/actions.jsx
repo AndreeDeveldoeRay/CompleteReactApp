@@ -46,6 +46,7 @@ export var startAddTodo = (text) => {
         }
 
         var uid = getState().auth.uid
+        var displayName = getState().auth.displayName
         var todoRef = firebaseRef.child(`users/${uid}/todos`).push(todo)
 
         return todoRef.then(() => {
@@ -67,6 +68,7 @@ export var startAddTodos = () => {
     return (dispatch, getState) => {
         var
             uid = getState().auth.uid,
+            displayName = getState().auth.displayName,
             todosRef = firebaseRef.child(`users/${uid}/todos`)
 
         return todosRef.once('value').then((snapshot) => {
@@ -104,7 +106,7 @@ export var startToggleTodo = (id, completed) => {
             dispatch(updateTodo(id,updates))
 
             // logging the result
-            firebaseRef.child(`todos/${id}/completed`).once('value').then((ss) => {
+            firebaseRef.child(`users/${uid}/todos/${id}/completed`).once('value').then((ss) => {
                 console.log(`completed set to:`, ss.val())
             })
         }, (error) => {
@@ -123,10 +125,11 @@ export var startLogin = () => {
     }
 }
 
-export var login = (uid) => {
+export var login = (uid, displayName) => {
     return {
         type: 'LOGIN',
-        uid
+        uid,
+        displayName
     }
 }
 
