@@ -4,12 +4,12 @@
  * @Email:  me@andreeray.se
  * @Filename: index.jsx
  * @Last modified by:   andreeray
- * @Last modified time: 2017-06-01T13:18:25+02:00
+ * @Last modified time: 2017-10-07T13:29:14+02:00
  */
 
 import React from 'react'
 import firebase from 'app/firebase'
-import {Route, Router, IndexRoute, hashHistory} from 'react-router'
+import {Route, Router, IndexRoute, browserHistory} from 'react-router'
 
 import Routing from 'routing'
 import Login from 'login'
@@ -27,7 +27,7 @@ var ifLoggedIn = (nextState, replace, next) => {
 
 
 export default (
-    <Router history={hashHistory}>
+    <Router history={browserHistory}>
         <Route path='/' component={Routing}>
             <IndexRoute component={Login}/>
             <Route path="/todo" onEnter={requireLogin} component={Todo}/>

@@ -3,8 +3,8 @@
 * @Date:   2017-02-28T01:05:05+01:00
 * @Email:  me@andreeray.se
 * @Filename: Item.jsx
- * @Last modified by:   develdoe
- * @Last modified time: 2017-04-20T00:43:01+02:00
+ * @Last modified by:   andreeray
+ * @Last modified time: 2017-10-07T13:08:22+02:00
 */
 
 
@@ -35,7 +35,9 @@ export var Item = React.createClass({
             return message + moment.unix(timestamp).format('MMMM Do YYYY HH:mm')
         }
         return (
-            <div className={todoClassName} onClick={ () => { dispatch(actions.startToggleTodo(id, !completed)) }}>
+            <div className={todoClassName} onClick={ () => {
+                    dispatch(actions.startToggleTodo(id, !completed))
+                }}>
                 <input type="checkbox" checked={completed} onChange={()=>{}} />
                 <p>{text}</p>
                 <p>{renderDate()}</p>

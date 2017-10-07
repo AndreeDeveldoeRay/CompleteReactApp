@@ -4,7 +4,7 @@
  * @Email:  me@andreeray.se
  * @Filename: actions.jsx
  * @Last modified by:   andreeray
- * @Last modified time: 2017-07-31T16:03:54+02:00
+ * @Last modified time: 2017-09-28T19:45:34+02:00
  *
  * @Description:
  *   Instead of returning objects we return functions to be able to work
@@ -82,11 +82,14 @@ export var startAddTodos = () => {
                     ...todos[id]
                 })
             })
-
             dispatch(addTodos(parsed))
         })
     }
 }
+
+
+
+
 export var updateTodo = (id, updates) => {
     return {
         type: 'UPDATE_TODO',
@@ -94,14 +97,19 @@ export var updateTodo = (id, updates) => {
         updates
     }
 }
+
+
 export var startToggleTodo = (id, completed) => {
+
     return (dispatch, getState) => {
+
         var uid = getState().auth.uid
         var todoRef = firebaseRef.child(`users/${uid}/todos/${id}`)
         var updates = {
             completed,
             completedAt: completed ? moment().unix() : null
         }
+
         return todoRef.update(updates).then(() => {
             dispatch(updateTodo(id,updates))
 
@@ -112,6 +120,19 @@ export var startToggleTodo = (id, completed) => {
         }, (error) => {
             console.log('error',error)
         })
+
+    }
+
+}
+
+
+
+
+export var login = (uid, displayName) => {
+    return {
+        type: 'LOGIN',
+        uid,
+        displayName
     }
 }
 
@@ -125,11 +146,12 @@ export var startLogin = () => {
     }
 }
 
-export var login = (uid, displayName) => {
+
+
+
+export var logout = () => {
     return {
-        type: 'LOGIN',
-        uid,
-        displayName
+        type: 'LOGOUT'
     }
 }
 
@@ -138,12 +160,5 @@ export var startLogout = () => {
         return firebase.auth().signOut().then(() => {
             console.log("logged out")
         })
-    }
-}
-
-
-export var logout = () => {
-    return {
-        type: 'LOGOUT'
     }
 }
